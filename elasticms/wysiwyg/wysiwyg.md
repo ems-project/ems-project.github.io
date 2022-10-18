@@ -3,6 +3,14 @@
 In elasticms you can configure WYSIWYG [profiles](#profiles) and [style sets](#style-sets).
 These are used for configurating and styling the [CKEditors](https://ckeditor.com/).
 
+<!-- TOC -->
+* [WYSIWYG](#wysiwyg)
+    * [Profiles](#profiles)
+        * [EMS settings](#ems-settings)
+    * [Style sets](#style-sets)
+        * [Styles set preview](#styles-set-preview)
+<!-- TOC -->
+
 ## Profiles
 
 Profiles are attached to an elasticms user. The configuration is applied on all WYSIWYG fields.
@@ -12,6 +20,24 @@ A profile has a required `name` and `config` json field.
 For building the json, the ckeditor [Toolbar Configurator](https://ckeditor.com/latest/samples/toolbarconfigurator/index.html#basic) can be helpful.
 
 [Example full profile config json](./elasticms/wysiwyg/example_profile.md).
+
+### EMS settings
+
+EMS settings are used over customizing the CKEditor experience.
+
+| Property           | Description                                           |
+|--------------------|-------------------------------------------------------|
+| urlTypes           | Limit the url types when creating a url               |
+| urlAllContentTypes | Disable the option `All ContentTypes` on internal url |
+
+```json
+{
+  "ems": {
+    "urlTypes": ["url", "anchor", "localPage", "fileLink", "email"],
+    "urlAllContentTypes": true
+  }
+}
+```
 
 ## Style sets
 
@@ -28,7 +54,7 @@ Can be used to overwrite CKEditor settings and user profiles.
 | Content JS                    | JS path inside asset zip                |
 | Save dir                      | Public path for symlink unzipped asset  |
 
-## Styles set preview
+### Styles set preview
 
 Using the style on a **WysiwygFieldType** you can enable `Styles set preview`. 
 
