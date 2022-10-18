@@ -9,4 +9,4 @@
 - ...
 
 [GitHub](https://github.com/ems-project)
-[Get Started](#elasticms)
+[Get Started](./getting-started/quick-start?id=quick-start)
