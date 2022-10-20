@@ -4,6 +4,7 @@ For managing elasticms user you are required to have the role `USER_MANAGEMENT`,
 
 <!-- TOC -->
 * [User](#user)
+  * [Options](#options)
   * [Roles](#roles)
   * [Circles](#circles)
 <!-- TOC -->
