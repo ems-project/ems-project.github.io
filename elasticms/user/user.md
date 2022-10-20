@@ -27,6 +27,15 @@ For managing elasticms user you are required to have the role `USER_MANAGEMENT`,
 | WYSIWYG profile              | see [WYSIWYG profiles](./elasticms/wysiwyg/wysiwyg.md#profiles)    |
 | allowed to configure WYSIWYG | user can overwrite WYSIWYG options                                 |
 
+## Options
+
+Since version 4.2 users also have options, in the feature we will extend and migrate properties.
+These options can be managed by the user (profile) or by the user manager.
+
+| Option        | Default | Description                                                                  |
+|---------------|---------|------------------------------------------------------------------------------|
+| simplified ui | false   | If enabled: hide save as draft and copy/paste functionality on revision edit |
+
 ## Roles
 
 Users can have multiple roles, and always have at least the `USER`.
