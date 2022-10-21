@@ -4,11 +4,13 @@ For managing elasticms user you are required to have the role `USER_MANAGEMENT`,
 
 <!-- TOC -->
 * [User](#user)
+  * [Properties](#properties)
   * [Options](#options)
   * [Roles](#roles)
   * [Circles](#circles)
 <!-- TOC -->
 
+## Properties
 | Property                     | Description                                                        |
 |------------------------------|--------------------------------------------------------------------|
 | username                     | Login username                                                     |
@@ -50,7 +52,7 @@ Users can have multiple roles, and always have at least the `USER`.
 | REVIEWER        | Group reviewers                    | AUTHOR                     |
 | TRADUCTOR       | Group traductors                   | REVIEWER                   |
 | AUDITOR         | **Granted** audit tab on revisions | REVIEWER                   |
-| PUBLISHER       | **Granted** publish action         | TRADUCTOR                  |
+| PUBLISHER       | Group publishers                   | TRADUCTOR                  |
 | WEBMASTER       | Group webmasters                   | PUBLISHER                  |
 | USER_MANAGEMENT | **Granted** user management        |                            |
 | COPY_PASTE      | **Granted** copy/paste revisions   |                            |
