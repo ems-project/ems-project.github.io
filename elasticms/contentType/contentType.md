@@ -62,7 +62,7 @@ On a content type you can define a [user role](./elasticms/user/user.md#Roles) f
 
 | Permission       | Description                                            |
 |------------------|--------------------------------------------------------|
-| view             | Display contentType in menu                            |
+| view             | Display contentType in menu, enable dataLinks          |
 | create           | Grant creation of new revisions                        |
 | edit             | Grant update revision                                  |
 | publish          | Grant publication to other environments                |
