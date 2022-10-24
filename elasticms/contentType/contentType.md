@@ -30,8 +30,6 @@ ContentType contain the structure, default environment and information for all r
 | active               |                                              |
 | environment          |                                              |
 | defaultValue         |                                              |
-| translationField     |                                              |
-| localeField          |                                              |
 | versionTags          |                                              |
 | versionOptions       |                                              |
 | versionDateFromField |                                              |
