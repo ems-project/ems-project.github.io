@@ -64,9 +64,10 @@ These are used for displaying revision information.
 | Field       | Description                                              |
 |-------------|----------------------------------------------------------|
 | label       | Display label for the revision                           |
-| circles     | Field containing the revision circles                    |
 | color       | Display color for the revision                           |
 | sort        | Default sorting in choice lists (better use querySearch) |
+| tooltip     | Add tooltip on dataLinks                                 |
+| circles     | Field containing the revision circles                    |
 | business_id | Used in export/import documents                          |
 | category    | Used in criteria view                                    |
 | asset       | Used in asset link from WYSIWYG                          |
