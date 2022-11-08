@@ -15,7 +15,7 @@
       * [Revision archive](#revision-archive)
       * [Revision copy](#revision-copy)
       * [Revision discard](#revision-discard)
-      * [Revision task](#revision-task)
+      * [Revision task create](#revision-task-create)
     * [User](#user)
       * [User activate](#user-activate)
       * [User change](#user-change)
