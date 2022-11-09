@@ -5,6 +5,8 @@ ContentType contain the structure, default environment and information for all r
 <!-- TOC -->
 * [ContentType](#contenttype)
   * [Properties](#properties)
+  * [Default value](#default-value)
+  * [Fields](#fields)
   * [Roles](#roles)
 <!-- TOC -->
 
@@ -29,13 +31,40 @@ ContentType contain the structure, default environment and information for all r
 | autoPublish          |                                              |
 | active               |                                              |
 | environment          |                                              |
-| defaultValue         |                                              |
+| defaultValue         | See [Default value](#default-value)          |
 | versionTags          |                                              |
 | versionOptions       |                                              |
 | versionDateFromField |                                              |
 | versionDateToField   |                                              |
 | roles                | Json field see [roles](#Roles)               |
 | fields               | Json field see [fields](#Fields)             |
+
+## Default value
+
+On a content type you can define a default value for the revisions.
+The result should be a valid JSON rendered by Twig template.
+
+> **Template context**
+> 
+> * `environment` : the default environment of the content type
+> * `contentType` : the content type entity
+> * `currentUser` : the authenticated user
+
+## Fields
+
+On a content type we can define fields from the elasticsearch mapping.
+These are used for displaying revision information.
+
+| Field       | Description                                              |
+|-------------|----------------------------------------------------------|
+| label       | Display label for the revision                           |
+| color       | Display color for the revision                           |
+| sort        | Default sorting in choice lists (better use querySearch) |
+| tooltip     | Add tooltip on dataLinks                                 |
+| circles     | Field containing the revision circles                    |
+| business_id | Used in export/import documents                          |
+| category    | Used in criteria view                                    |
+| asset       | Used in asset link from WYSIWYG                          |
 
 ## Roles
 
@@ -54,18 +83,3 @@ On a content type you can define a [user role](./elasticms/user/user.md#Roles) f
 | show_link_create | Display creation link in navigation                    |
 | show_link_search | Display search link in navigation                      |
 
-## Fields
-
-On a content type we can define fields from the elasticsearch mapping.
-These are used for displaying revision information.
-
-| Field       | Description                                              |
-|-------------|----------------------------------------------------------|
-| label       | Display label for the revision                           |
-| color       | Display color for the revision                           |
-| sort        | Default sorting in choice lists (better use querySearch) |
-| tooltip     | Add tooltip on dataLinks                                 |
-| circles     | Field containing the revision circles                    |
-| business_id | Used in export/import documents                          |
-| category    | Used in criteria view                                    |
-| asset       | Used in asset link from WYSIWYG                          |
