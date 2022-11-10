@@ -70,16 +70,16 @@ These are used for displaying revision information.
 
 On a content type you can define a [user role](./elasticms/user/user.md#Roles) for permissions.
 
-| Permission       | Description                                            |
-|------------------|--------------------------------------------------------|
-| view             | Display contentType in menu, enable dataLinks          |
-| create           | Grant creation of new revisions                        |
-| edit             | Grant update revision                                  |
-| publish          | Grant publication to other environments                |
-| delete           | Grant delete revision                                  |
-| trash            | Trash functional enabled (put back deleted revisions)  |
-| archive          | Grant archive revision (unpublish default environment) |
-| owner            | Can be revision owners                                 |
-| show_link_create | Display creation link in navigation                    |
-| show_link_search | Display search link in navigation                      |
+| Permission       | Description                                                                                                                                  |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| view             | Display contentType in menu, enable dataLinks                                                                                                |
+| create           | Grant creation of new revisions                                                                                                              |
+| edit             | Grant update revision                                                                                                                        |
+| publish          | Grant publication to other environments, can be overruled by [environment publish role](./elasticms/environment/environment.md#publish-role) |
+| delete           | Grant delete revision                                                                                                                        |
+| trash            | Trash functional enabled (put back deleted revisions)                                                                                        |
+| archive          | Grant archive revision (unpublish default environment)                                                                                       |
+| owner            | Can be revision owners                                                                                                                       |
+| show_link_create | Display creation link in navigation                                                                                                          |
+| show_link_search | Display search link in navigation                                                                                                            |
 

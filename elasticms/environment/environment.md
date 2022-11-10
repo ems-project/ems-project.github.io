@@ -9,6 +9,7 @@ Often an elasticms has 2 environments `preview` and `live`.
 <!-- TOC -->
 * [Environment](#environment)
   * [Properties](#properties)
+  * [Publish Role](#publish-role)
   * [Template publication](#template-publication)
 <!-- TOC -->
 
@@ -26,7 +27,17 @@ Often an elasticms has 2 environments `preview` and `live`.
 | snapshot            |                                                                  |
 | updateReferrers     |                                                                  |
 | templatePublication | Twig template, see [Template publication](#template-publication) |
+| publishRole         | Publish Role, see [Publish Role](#publish-role)                  |
 | baseUrl             | Text field for defining an baseUrl                               |
+
+## Publish Role
+
+Block environment publication by [user role](./elasticms/user/user.md#Roles), on revision detail page and compare environments page.
+
+This overwrites the publish role on the [contentType](./elasticms/contentType/contentType.md#Roles).
+
+> This does not apply for the default environment, publication in the default environment is managed 
+> by the [contentType edit role](./elasticms/contentType/contentType.md#Roles).
 
 ## Template publication
 
