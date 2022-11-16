@@ -14,6 +14,7 @@
     * [Revision](#revision)
       * [Revision archive](#revision-archive)
       * [Revision copy](#revision-copy)
+      * [Revision delete](#revision-delete)
       * [Revision discard](#revision-discard)
       * [Revision task create](#revision-task-create)
     * [User](#user)
@@ -166,6 +167,32 @@ Arguments:
 Options:
       --scroll-size=SCROLL-SIZE        Size of the elasticsearch scroll request
       --scroll-timeout=SCROLL-TIMEOUT  Timeout "scrollSize" items i.e. 30s or 2m
+```
+
+#### Revision delete
+
+Delete all/oldest revisions for content type(s).
+
+In `oldest` mode, only not published revisions will be removed and keeping revisions between publications.
+
+> This a hard delete, no rollback possible.
+
+```bash
+emsco:revision:delete asset page # Removing all revisions for asset and page contentType
+emsco:revision:delete asset page --mode=oldest # Removing oldest revisions for asset and page contentType
+emsco:revision:delete all # Removing all revisions
+emsco:revision:delete all --mode=oldest # Removing all oldest revisions
+```
+
+```bash
+Usage:
+  emsco:revision:delete [options] [--] [<contentTypes>...]
+
+Arguments:
+  contentTypes          contentType names or "all"
+
+Options:
+      --mode=MODE       mode for deletion [all,oldest] [default: "all"]
 ```
 
 #### Revision discard
