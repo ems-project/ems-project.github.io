@@ -17,6 +17,14 @@
   - [Web Audit](/elasticms-cli/audit.md)
   - [Update documents](/elasticms-cli/documents.md)
   - [Migrate Web](/elasticms-cli/migrate-web.md)
+- Bundles
+  - [Client Helper](/dev/client-helper-bundle/index.md)
+    - [Environment](/dev/client-helper-bundle/environment.md)
+    - [Routing](/dev/client-helper-bundle/routing.md)
+    - [Search](/dev/client-helper-bundle/search.md)
+    - [Twig](/dev/client-helper-bundle/twig.md)
+      - [Filters](/dev/client-helper-bundle/Twig/filters.md)
+      - [Functions](/dev/client-helper-bundle/Twig/functions.md)
 - Packages
   - [Helper](/dev/helpers/index.md)
     - [ArrayHelper](/dev/helpers/array-helper.md)
