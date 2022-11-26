@@ -1,8 +1,8 @@
 - Getting started
   - [Quick start](../getting-started/quick-start.md)
 
-- [Commands](../commands/commands.md)
 - [ElasticMS Admin](../elasticms-admin/index.md)
+  - [Commands](../elasticms-admin/commands/commands.md)
   - [ContentType](../elasticms-admin/contentType/contentType.md)
   - [Dashboard](../elasticms-admin/dashboard/dashboard.md)
   - [Environment](../elasticms-admin/environment/environment.md)
