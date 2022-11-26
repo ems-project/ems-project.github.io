@@ -1,8 +1,9 @@
 - Getting started
   - [Quick start](./getting-started/quick-start.md)
 - Site building
-  - [Twig](./twig/twig.md)
+  - [Twig](./site-building/twig.md)
 - [ElasticMS Admin](./elasticms-admin/index.md)
+  - [Environment variables](./elasticms-admin/environment-variables.md)
   - [Commands](./elasticms-admin/commands/commands.md)
   - [ContentType](./elasticms-admin/contentType/contentType.md)
   - [Dashboard](./elasticms-admin/dashboard/dashboard.md)
@@ -11,4 +12,5 @@
   - [WYSIWYG](./elasticms-admin/wysiwyg/wysiwyg.md)
 - Contributors
   - [Migrate a repository](./contributors/migrate-repo.md)
+  - [Migrate to elasticsearch 7](./contributors/migrade-to-es7.md)
 
