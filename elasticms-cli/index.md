@@ -1,4 +1,4 @@
-# ElasticMS CLI
+# ElasticMS CLI &nbsp;[![Build Status](https://github.com/ems-project/elasticms-toolbox-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/ems-project/elasticms-toolbox-docker) [![Latest Stable Version](https://img.shields.io/github/v/release/ems-project/elasticms-cli)](https://github.com/ems-project/elasticms-cli/releases)
 
 This is a command client to interact with and ElasticMS Admin with some helper commands.
 

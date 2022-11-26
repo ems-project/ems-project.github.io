@@ -1,4 +1,4 @@
-# Elasticms &nbsp;[![Build Status](https://github.com/ems-project/elasticms-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/ems-project/elasticms-docker) [![Latest Stable Version](https://img.shields.io/github/release/ems-project/elasticms.svg)](https://github.com/ems-project/elasticms/releases)
+# Elasticms Admin &nbsp;[![Build Status](https://github.com/ems-project/elasticms-admin-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/ems-project/elasticms-admin-docker) [![Latest Stable Version](https://img.shields.io/github/v/release/ems-project/elasticms-admin)](https://github.com/ems-project/elasticms-admin/releases)
 
 |                                                     |                                               |                                                       |
 |-----------------------------------------------------|-----------------------------------------------|-------------------------------------------------------|
