@@ -2,7 +2,7 @@
 
 <!-- TOC -->
 * [Commands](#commands)
-  * [EMSCO (CoreBundle)](#emsco--corebundle-)
+  * [EMSCO (CoreBundle)](#emsco-corebundle)
     * [Content Type](#content-type)
       * [Content Type transform](#content-type-transform)
     * [Environment](#environment)
