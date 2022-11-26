@@ -19,3 +19,10 @@ If you want you can call all three validators bu using this:
 `````bash
 composer phpall
 `````
+
+
+## Tools
+If you want to regenerate a PHPStan baseline run this command:
+```
+vendor/bin/phpstan analyse --generate-baseline
+```
