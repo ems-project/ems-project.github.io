@@ -1,15 +1,15 @@
 # Twig
 
-The ems project heavily uses [TWIG](https:///twig.symfony.com/doc/3.x/filters/https:///twig.symfony.com).
+The ems project heavily uses [TWIG](https:///twig.symfony.com).
 
-- Elasticms uses twig for: custom dashboards, views, actions, postprocessing, ..
-- Skeleton use twig for creating webpages, redirect, pdf exports, file serving
+- ElasticMS Admin uses twig for: custom dashboards, views, actions, postprocessing, ..
+- ElasticMS Web uses twig for creating webpages, redirect, pdf exports, file serving
 
 <!-- TOC -->
 * [Twig](#twig)
   * [Twig cheatsheet](#twig-cheatsheet)
   * [Symfony cheatsheet](#symfony-cheatsheet)
-  * [elasticMS Common Bundle Extension](#common-bundle)
+  * [elasticMS Common Bundle Extension](#common-bundle) for both ElasticMS Admin and ElasticMS Web
 <!-- TOC -->
 
 ## Twig cheatsheet
@@ -82,6 +82,9 @@ The ems project heavily uses [TWIG](https:///twig.symfony.com/doc/3.x/filters/ht
 
 ## Common Bundle
 
+The common's twig filters and functions are available in both ElasticMS Admin and in ElasticMS Web
+
+
 ### Filter
 
 #### `ems_dom_crawler`
@@ -89,6 +92,8 @@ The ems project heavily uses [TWIG](https:///twig.symfony.com/doc/3.x/filters/ht
 This filter parses a string and returns a [Symfony DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html)
 
 Useful to extract content from a html string: `{% set firstP = data.body_fr|ems_dom_crawler.filter('p').first.text %}`
+
+
 
 
 

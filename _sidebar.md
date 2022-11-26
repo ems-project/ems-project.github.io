@@ -1,4 +1,14 @@
-- [Getting started](./getting-started/quick-start.md)
+- Getting started
+  - [Quick start](./getting-started/quick-start.md)
+- Site building
+  - [Twig](./twig/twig.md)
 - [ElasticMS Admin](./elasticms-admin/index.md)
-- [Twig](./twig/twig.md)
+  - [Commands](./elasticms-admin/commands/commands.md)
+  - [ContentType](./elasticms-admin/contentType/contentType.md)
+  - [Dashboard](./elasticms-admin/dashboard/dashboard.md)
+  - [Environment](./elasticms-admin/environment/environment.md)
+  - [User](./elasticms-admin/user/user.md)
+  - [WYSIWYG](./elasticms-admin/wysiwyg/wysiwyg.md)
+- Contributors
+  - [Migrate a repository](./contributors/migrate-repo.md)
 
