@@ -75,6 +75,7 @@
 - Packages
   - [Helper](/dev/helpers/index.md)
     - [ArrayHelper](/dev/helpers/array-helper.md)
+  - [Xliff](/dev/xliff/index.md)
 - Contributors
   - [Coding Standards](/contributors/coding_standards.md)
   - [Migrate a repository](/contributors/migrate-repo.md)
