@@ -22,7 +22,12 @@ composer phpall
 
 
 ## Tools
-If you want to regenerate a PHPStan baseline run this command:
-```
-vendor/bin/phpstan analyse --generate-baseline
-```
+
+## Composer commands
+
+* `composer phpcs`: Apply the coding standards
+* `composer phpstan`: Scans codebase and looks for both obvious & tricky bugs
+* `composer phpunit`: Runs unit tests suite
+* `composer rector`: Refactor the codebase with Rector
+* `composer phpall`: Runs all previous commands
+* `vendor/bin/phpstan analyse --generate-baseline`: If you want to regenerate a PHPStan baseline run this command:
