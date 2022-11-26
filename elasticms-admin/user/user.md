@@ -27,7 +27,7 @@ For managing elasticms user you are required to have the role `USER_MANAGEMENT`,
 | sidebar collapse             | Checkbox for making the sidebar collapsed by default               |
 | sidebar mini                 | Checkbox for mini sidebar                                          |
 | layout boxed                 | Checkbox for boxed layout                                          |
-| WYSIWYG profile              | see [WYSIWYG profiles](./elasticms/wysiwyg/wysiwyg.md#profiles)    |
+| WYSIWYG profile              | see [WYSIWYG profiles](../wysiwyg/wysiwyg.md#profiles)             |
 | allowed to configure WYSIWYG | user can overwrite WYSIWYG options                                 |
 
 ## Options

@@ -3,6 +3,6 @@
     - [Migrate a elasticMS repo](./getting-started/migrate-repo.md)
 
 - [Commands](./commands/commands.md)
-- [Elasticms](./elasticms/index.md)
+- [ElasticMS](./elasticms-admin/index.md)
 - [Twig](./twig/twig.md)
 

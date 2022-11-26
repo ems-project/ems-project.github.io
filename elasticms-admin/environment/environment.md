@@ -1,6 +1,6 @@
 # Environment
 
-An environment is used by a [ContentType](./elasticms/contentType/contentType.md), all revisions will be indexed into the alias.
+An environment is used by a [ContentType](../contentType/contentType.md), all revisions will be indexed into the alias.
 The environment attach to a contentType is the `default` environment for this contentType.
 
 From the default environment we can publish/unpublish to other environments.
@@ -32,12 +32,12 @@ Often an elasticms has 2 environments `preview` and `live`.
 
 ## Publish Role
 
-Block environment publication by [user role](./elasticms/user/user.md#Roles), on revision detail page and compare environments page.
+Block environment publication by [user role](../user/user.md#Roles), on revision detail page and compare environments page.
 
-This overwrites the publish role on the [contentType](./elasticms/contentType/contentType.md#Roles).
+This overwrites the publish role on the [contentType](../contentType/contentType.md#Roles).
 
 > This does not apply for the default environment, publication in the default environment is managed 
-> by the [contentType edit role](./elasticms/contentType/contentType.md#Roles).
+> by the [contentType edit role](../contentType/contentType.md#Roles).
 
 ## Template publication
 

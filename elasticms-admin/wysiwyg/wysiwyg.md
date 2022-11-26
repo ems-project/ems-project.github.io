@@ -13,13 +13,13 @@ These are used for configurating and styling the [CKEditors](https://ckeditor.co
 
 ## Profiles
 
-Profiles are attached to an elasticms [user](./elasticms/user/user.md). The configuration is applied on all WYSIWYG fields.
+Profiles are attached to an elasticms [user](../user/user.md). The configuration is applied on all WYSIWYG fields.
 
 A profile has a required `name` and `config` json field.
 
 For building the json, the ckeditor [Toolbar Configurator](https://ckeditor.com/latest/samples/toolbarconfigurator/index.html#basic) can be helpful.
 
-[Example full profile config json](./elasticms/wysiwyg/example_profile.md).
+[Example full profile config json](../wysiwyg/example_profile.md).
 
 ### EMS settings
 

@@ -68,14 +68,14 @@ These are used for displaying revision information.
 
 ## Roles
 
-On a content type you can define a [user role](./elasticms/user/user.md#Roles) for permissions.
+On a content type you can define a [user role](../user/user.md#Roles) for permissions.
 
 | Permission       | Description                                                                                                                                  |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | view             | Display contentType in menu, enable dataLinks                                                                                                |
 | create           | Grant creation of new revisions                                                                                                              |
 | edit             | Grant update revision                                                                                                                        |
-| publish          | Grant publication to other environments, can be overruled by [environment publish role](./elasticms/environment/environment.md#publish-role) |
+| publish          | Grant publication to other environments, can be overruled by [environment publish role](../environment/environment.md#publish-role) |
 | delete           | Grant delete revision                                                                                                                        |
 | trash            | Trash functional enabled (put back deleted revisions)                                                                                        |
 | archive          | Grant archive revision (unpublish default environment)                                                                                       |
