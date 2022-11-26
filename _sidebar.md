@@ -17,6 +17,9 @@
   - [Web Audit](/elasticms-cli/audit.md)
   - [Update documents](/elasticms-cli/documents.md)
   - [Migrate Web](/elasticms-cli/migrate-web.md)
+- Packages
+  - [Helper](/dev/helpers/index.md)
+    - [ArrayHelper](/dev/helpers/array-helper.md)
 - Contributors
   - [Coding Standards](/contributors/coding_standards.md)
   - [Migrate a repository](/contributors/migrate-repo.md)
