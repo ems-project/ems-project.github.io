@@ -9,6 +9,7 @@ The ems project heavily uses [TWIG](https:///twig.symfony.com/doc/3.x/filters/ht
 * [Twig](#twig)
   * [Twig cheatsheet](#twig-cheatsheet)
   * [Symfony cheatsheet](#symfony-cheatsheet)
+  * [elasticMS Common Bundle Extension](#common-bundle)
 <!-- TOC -->
 
 ## Twig cheatsheet
@@ -79,7 +80,15 @@ The ems project heavily uses [TWIG](https:///twig.symfony.com/doc/3.x/filters/ht
 | [csrf_token](https://twig.symfony.com/doc/3.x/functions/csrf_token.html)       | [form_help](https://twig.symfony.com/doc/3.x/functions/form_help.html)     | [form_start](https://twig.symfony.com/doc/3.x/functions/form_start.html)   | [path](https://twig.symfony.com/doc/3.x/functions/path.html)               |                                                                                |
 
 
+## Common Bundle
 
+### Filter
+
+#### `ems_dom_crawler`
+
+This filter parses a string and returns a [Symfony DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html)
+
+Useful to extract content from a html string: `{% set firstP = data.body_fr|ems_dom_crawler.filter('p').first.text %}`
 
 
 
