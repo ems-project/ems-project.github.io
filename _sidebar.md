@@ -77,7 +77,9 @@
     - [ArrayHelper](/dev/helpers/array-helper.md)
   - [Xliff](/dev/xliff/index.md)
 - Contributors
-  - [Coding Standards](/contributors/coding_standards.md)
-  - [Migrate a repository](/contributors/migrate-repo.md)
-  - [Migrate to elasticsearch 7](/contributors/migrade-to-es7.md)
+  - [Coding Standards](/maintainers/coding_standards.md)
+  - [Commit Quality](/maintainers/commit_quality.md)
+  - [Pull Request](/maintainers/pull_requests.md)
+  - [Migrate a repository](/maintainers/migrate-repo.md)
+  - [Migrate to elasticsearch 7](/maintainers/migrade-to-es7.md)
 
