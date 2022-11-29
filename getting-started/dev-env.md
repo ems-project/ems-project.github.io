@@ -71,6 +71,7 @@ Init the DB and create an admin user:
 
 ````bash
 cd ../elasticms-admin
+cp .env.dist .env
 php bin/console doctrine:migrations:migrate
 php bin/console emsco:user:create --super-admin
 php bin/console asset:install --symlink
