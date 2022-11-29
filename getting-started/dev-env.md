@@ -44,7 +44,7 @@ docker compose up -d
 | 9200 | elasticsearch   |
 | 9998 | tika            |
 
-### Prerequisite
+## Prerequisite 
 
 ```bash
 cd ~
@@ -52,7 +52,7 @@ wget https://get.symfony.com/cli/installer -O - | bash
 sudo mv /home/dockerce/.symfony5/bin/symfony /usr/local/bin/symfony 
 ```
 
-### Init elasticMS
+## Init elasticMS
 
 Go to [MinIO](http://minio.localhost/login) with the `accesskey` user and the `secretkey` password:
 
@@ -85,6 +85,19 @@ Useful commands:
 
 * `symfony server:log`
 
+## Load and save DB dumps
+
+You may want to load an existing elasticMS dump. If so please check the dump's schema matches the DB's schema.
+
+```bash
+cd docker
+sh pg_load.sh demo dump_demo.sql
+```
 
 
+To make a dump:
 
+```bash
+cd docker
+sh pg_dump.sh demo demo > dump_demo.sql
+```
