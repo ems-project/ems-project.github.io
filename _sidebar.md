@@ -1,5 +1,6 @@
 - Getting started
   - [Quick start](/getting-started/quick-start.md)
+  - [Dev environment](/getting-started/dev-env.md)
 - Site building
   - [Twig](/site-building/twig.md)
 - [ElasticMS Admin](/elasticms-admin/index.md)
