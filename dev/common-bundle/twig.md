@@ -1,3 +1,22 @@
+# TOC
+
+* [Twig Functions](#twig-functions)
+  * [ems_html](#ems_html)
+  * [ems_nested_search](#ems_nested_search)
+  * [ems_image_info](#ems_image_info)
+* [Twig filters](#twig-filters)
+  * [ems_anti_spam](#ems_anti_spam)
+  * [ems_html_encode](#ems_html_encode)
+  * [ems_markdown](#ems_markdown)
+  * [ems_stringify](#ems_stringify)
+  * [ems_asset_average_color](#ems_asset_average_color)
+  * [ems_replace_regex](#ems_replace_regex)
+  * [ems_html_decode](#ems_html_decode)
+  * [ems_hash](#ems_hash)
+  * [format_bytes](#format_bytes)
+
+
+
 # Twig Functions
 
 ## ems_html
@@ -198,3 +217,16 @@ Generate a hash value from the message. See the [PHP hash function](https://php.
 - algo: [refers to the hash's algo parameter](https://php.net/manual/en/function.hash.php), default value `null` which means that the `ems_common.hash_algo` will be used
 - binary: [refers to the hash's binary parameter](https://php.net/manual/en/function.hash.php), default value `false`. When set to `true`, outputs raw binary data
 
+## format_bytes
+
+Useful to generate a human readable file size from an interger.
+
+````twig
+{{ 21666|format_bytes }} {# displays: 21.16 KB #}
+````
+
+A second 'precision' parameter can be defined:
+
+````twig
+{{ 21666|format_bytes(1) }} {# displays: 21.2 KB #}
+````

@@ -44,7 +44,7 @@ docker compose up -d
 | 9200 | elasticsearch   |
 | 9998 | tika            |
 
-## Prerequisite
+## Prerequisite 
 
 ```bash
 cd ~
@@ -84,7 +84,6 @@ symfony server:start --port=8080 -d
 Useful commands:
 
 * `symfony server:log`
-
 
 ## Load and save DB dumps
 

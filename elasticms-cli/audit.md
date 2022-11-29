@@ -99,3 +99,11 @@ This auditor can be activated with the flags `--tika` or `--all`. This auditor c
 * The document's author
 
 This auditor is also used to extract links/urls form non html responses (i.e. PDF, .docx, ...) in order to test if they are broken. And, for internal links, to add them to the queue.
+
+An additional `--tika-base-url` parameter allows to specify a Tika Server. It's set by default to `http://localhost:9998/`.
+
+So if you have docker you can easily start an instance of Tika Server compatible with this default value:
+
+```bash
+docker run -d -p 9998:9998 apache/tika
+```
