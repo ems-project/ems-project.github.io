@@ -49,7 +49,7 @@ docker compose up -d
 ```bash
 cd ~
 wget https://get.symfony.com/cli/installer -O - | bash
-sudo mv /home/dockerce/.symfony5/bin/symfony /usr/local/bin/symfony 
+sudo mv ~/.symfony5/bin/symfony /usr/local/bin/symfony 
 ```
 
 ## Init elasticMS
@@ -72,10 +72,11 @@ Init the DB and create an admin user:
 ````bash
 cd ../elasticms-admin
 cp .env.dist .env
+composer install
 php bin/console doctrine:migrations:migrate
 php bin/console emsco:user:create --super-admin
 php bin/console asset:install --symlink
-symfony server:start --port=8080 -d
+symfony server:start --port=8080 -d --no-tls
 ````
 
 [elasticMS Admin](http://localhost:8080) is now available.
