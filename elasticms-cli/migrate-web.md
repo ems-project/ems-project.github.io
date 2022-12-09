@@ -108,7 +108,30 @@ The JSON config file list all web resources to synchronise for each document.
           "filters": [],
           "attribute": null,
           "strategy": "n"
-        }
+        },
+        {
+            "selector": "#block-system-main > article > section > div.field.field-name-document-files-associated.field-type-ds.field-label-hidden > div > div > div > div > div > div.views-field.views-field-field-date > span > span",
+            "property": "[temp][files][file_info][date]",
+            "filters": [],
+            "attribute": "content",
+            "strategy": "n"
+         },
+         {
+            "selector": "#block-system-main > article > section > div.field.field-name-document-files-associated.field-type-ds.field-label-hidden > div > div > div > div > div > div.views-field.views-field-nothing-1 > span > a",
+            "property": "[temp][files][file_info][%locale%][long_title]",
+            "filters": [],
+            "attribute": null,
+            "strategy": "n"
+         },
+         {
+            "selector": "#block-system-main > article > section > div.field.field-name-document-files-associated.field-type-ds.field-label-hidden > div > div > div > div > div > div.views-field.views-field-nothing-1 > span > a",
+            "property": "[temp][files][file_info][%locale%][file]",
+            "filters": [
+               "src"
+            ],
+            "attribute": "href",
+            "strategy": "n"
+         }
       ]
     },
     {
@@ -153,7 +176,13 @@ The JSON config file list all web resources to synchronise for each document.
           "expression": "list_to_json_menu_nested(data.get('temp.links'), 'link_url', 'link', data.get('temp.links_label'), 'label', true)",
           "jsonDecode": false,
           "condition": "true"
-        }
+        },
+         {
+            "property": "[files]",
+            "expression": "array_to_json_menu_nested(data.get('temp.files'),  { 'file_info' : [ 'date' , { 'fr' : ['long_title', 'file'] } , { 'nl' : ['long_title', 'file'] } ] })",
+            "jsonDecode": false,
+            "condition": "true"
+         }         
       ],
       "tempFields": [
         "temp"
@@ -268,7 +297,11 @@ Functions available:
    - `labelField`: May also copy the label into another object text field
    - `multiplex`: Boolean - indicates if include in multiplex field (need to extract locale in last position `[temp][links][%locale%]`)
    - Example `list_to_json_menu_nested(data.get('temp.links'), 'link_url', 'link', data.get('temp.links_label'), 'label', true)`
-   
+ - `array_to_json_menu_nested($values, $keys)`: construct a json menu nested with several fields in object
+   - `values`: Array of values
+   - `keys`: Array of keys (first element key are type of name of key = name of field need to be imported and need exactly the same in values)
+   - Example `"array_to_json_menu_nested(data.get('temp.files'),  { 'file_info' : [ 'date' , { 'fr' : ['long_title', 'file'] } , { 'nl' : ['long_title', 'file'] } ] })"`
+
 Variable available
  - `data` an instance of [ExpressionData](https://github.com/ems-project/elasticms/blob/4.x/elasticms-cli/src/Client/WebToElasticms/Helper/ExpressionData.php)
  - `document` an instance of [Document](https://github.com/ems-project/elasticms/tree/4.x/elasticms-cli/src/Client/WebToElasticms/Config)
