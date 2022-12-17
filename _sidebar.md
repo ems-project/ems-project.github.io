@@ -74,6 +74,9 @@
       - [SFTP](/dev/submission-bundle/handlers/sftp.md)
       - [Soap](/dev/submission-bundle/handlers/soap.md)
       - [Zip](/dev/submission-bundle/handlers/zip.md)
+- Recipes
+  - [Export as word](/recipes/export-as-word.md)
+  - [Hierarchy to JSON Netsed](/recipes/hierarchy-to-json-netsed.md)
 - Packages
   - [Helper](/dev/helpers/index.md)
     - [ArrayHelper](/dev/helpers/array-helper.md)
