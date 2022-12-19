@@ -17,6 +17,7 @@
   - [Environment variables](/elasticms-web/parameters.md)
 - [ElasticMS CLI](/elasticms-cli/index.md)
   - [Environment variables](/elasticms-cli/parameters.md)
+  - [Common's commands](/elasticms-cli/commands.md)
   - [Web Audit](/elasticms-cli/audit.md)
   - [Update documents](/elasticms-cli/documents.md)
   - [Migrate Web](/elasticms-cli/migrate-web.md)
