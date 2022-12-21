@@ -2,6 +2,7 @@
   - [Quick start](/getting-started/quick-start.md)
   - [Setup your computer](/getting-started/local-dev.md)
   - [Dev environment](/getting-started/dev-env.md)
+  - [Contributing](/getting-started/contributing.md)
 - Site building
   - [Twig](/site-building/twig.md)
   - [Upgrade to ems 4](/site-building/upgrade-to-4.md)
@@ -84,9 +85,6 @@
     - [ArrayHelper](/dev/helpers/array-helper.md)
   - [Xliff](/dev/xliff/index.md)
 - Contributors
-  - [Coding Standards](/maintainers/coding_standards.md)
-  - [Commit Quality](/maintainers/commit_quality.md)
-  - [Pull Request](/maintainers/pull_requests.md)
   - [Migrate a repository](/maintainers/migrate-repo.md)
   - [Migrate to elasticsearch 7](/maintainers/migrade-to-es7.md)
 
