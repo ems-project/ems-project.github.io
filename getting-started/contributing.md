@@ -72,9 +72,3 @@ For building our mono repository we used the [symplify/monorepo-builder](https:/
 ```
 vendor/bin/monorepo-builder validate
 ```
-
-
-
-
-
-
