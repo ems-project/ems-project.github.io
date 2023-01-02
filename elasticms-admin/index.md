@@ -1,9 +1,9 @@
-# Elasticms Admin &nbsp;[![Build Status](https://github.com/ems-project/elasticms-admin-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/ems-project/elasticms-admin-docker) [![Latest Stable Version](https://img.shields.io/github/v/release/ems-project/elasticms-admin)](https://github.com/ems-project/elasticms-admin/releases)
+# Elasticms Admin &nbsp; [![Latest Stable Version](https://img.shields.io/github/v/release/ems-project/elasticms-admin)](https://github.com/ems-project/elasticms-admin/releases)
 
-|                                                     |                                               |                                                       |
-|-----------------------------------------------------|-----------------------------------------------|-------------------------------------------------------|
-| [ContentType](./contentType/contentType.md) | [Dashboard](./dashboard/dashboard.md) | [Environment](./environment/environment.md) |
-| [User](./user/user.md)                     | [WYSIWYG](./wysiwyg/wysiwyg.md)       |                                                       |
+|                                                            |                                                      |                                                            |
+|------------------------------------------------------------|------------------------------------------------------|------------------------------------------------------------|
+| [ContentType](/elasticms-admin/contentType/contentType.md) | [Dashboard](/elasticms-admin/dashboard/dashboard.md) | [Environment](/elasticms-admin/environment/environment.md) |
+| [User](/elasticms-admin/user/user.md)                      | [WYSIWYG](/elasticms-admin/wysiwyg/wysiwyg.md)       |                                                            |
 
 
 ## About
