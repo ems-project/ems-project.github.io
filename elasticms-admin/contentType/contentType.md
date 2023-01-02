@@ -11,6 +11,7 @@ ContentType contain the structure, default environment and information for all r
 * [Actions](#actions)
   * [Embed](#embed)
   * [Export](#export)
+    * [Spreadsheet](#spreadsheet)
   * [External link](#external-link)
   * [Raw HTML](#raw-html)
   * [Notification](#notification)
