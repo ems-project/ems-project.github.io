@@ -130,6 +130,29 @@ Good for generating overviews or custom reports.
 ## Export
 Export a generated file.
 
+### Spreadsheet
+
+If you enable the spreadsheet checkbox, the body needs to return a valid json.
+This json is passed to the common Spreadsheet generator. 
+
+- `mimetype` can be left empty, because it will be set by the spreadsheet generator.
+- `extension` is required and can be **csv** or **xlsx**
+
+If you use the **csv** extension the body can only contain one sheet.
+
+```twig
+{{- [
+    { 
+        "name": "sheet1",
+        "rows": [
+            ["bundle", "description"],
+            ["core-bundle", "symfony core bundle"],
+            ["common-bundle", "symfony common bundle"]
+        ]
+    }
+]|json_encode|raw -}}
+```
+
 ## External link
 The body is the href attribute for the external link.
 You can also use the raw render option for more flexibility.
