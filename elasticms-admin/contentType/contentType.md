@@ -162,7 +162,7 @@ If you use the **csv** extension the body can only contain one sheet.
 
 #### Example export jsonMenuNested
 
-Export the nested object fields `title_nl`, `title_fr`, `date_start`, `date_end` from the field name `items`.
+Export the nested object fields `title_nl`, `title_fr`, `date_start`, `date_end` from the field named `items`.
 
 ````twig
 {%- set columns = ['title_nl', 'title_fr', 'date_start', 'date_end'] -%}
