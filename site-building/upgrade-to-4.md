@@ -7,7 +7,7 @@
 * replace `{% endspaceless %}` by `{% endapply %}`
 * replace `{% for key, item in array if test %}` by  `{% for key, item in array|filter(key, item => test) %}`
 * replace `transchoice` by `trans`
-  * I.e. replace `{{ 'search.results'|transchoice(results.hits.total.value|default(response.total))|raw -}}`
+  * I.e. replace `{{ 'search.results'|transchoice(results.hits.total.value|default(response.total)) -}}`
   * by `{{ 'search.results'|trans({'%count%': results.hits.total.value|default(response.total)}) -}}`
 
 #### Asset custom twig functions
