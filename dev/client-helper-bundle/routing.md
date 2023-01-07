@@ -222,3 +222,25 @@ The template's response should be a JSON containing those optional parameters:
  - `message`: A 404 message. Default value 'Page not found'
 
 If the url parameter is not defined, the controller will throw a 404 with the message parameter.
+
+Instead of redirecting via an HTTP redirect response you can also directly return an assets. To do so, instead of giving a path to redirect to, give a path to a file:
+
+````twig
+{% extends '@EMSCH/template/variables.twig' %}
+
+{%- block request %}
+    {% apply spaceless %}
+        {{ {
+            path: emsch_asset('img/head/icon.png', {
+                _config_type: 'image',
+                _width: 128,
+                _height: 128,
+                _quality: 0,
+                _get_file_path: true,
+            }),
+        }|json_encode|raw }}
+    {% endapply %}
+{% endblock request -%}
+````
+
+In this previous example we assume that a call to the `emsch_assets_version` function has been made in the `template/variables.twig` template.
