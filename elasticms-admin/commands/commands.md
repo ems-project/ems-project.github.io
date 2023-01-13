@@ -208,15 +208,25 @@ emsco:revision:delete all # Removing all revisions
 emsco:revision:delete all --mode=oldest # Removing all oldest revisions
 ```
 
+It's also possible to delete revision by passing a query. In this case the provided elasticsearch query is run all all OUUIDs are collected.
+Base on those OUUIDs all revisions in the database and all documents in all managed indexes are deleted.
+
+```bash
+ php bin/console ems:rev:dele --mode=by-query --query='{"index":"ems_default","body":{"query":{"bool":{"must":[{"term":{"host":{"value":"domain.tld","boost":1}}},{"terms":{"_contenttype":["audit"]}}]}}}}'
+```
+
+
 ```bash
 Usage:
-  emsco:revision:delete [options] [--] [<contentTypes>...]
+  emsco:revision:delete [options] [--] [<content-types>...]
+  ems:contenttype:delete
 
 Arguments:
-  contentTypes          contentType names or "all"
+  content-types         contentType names or "all"
 
 Options:
-      --mode=MODE       mode for deletion [all,oldest] [default: "all"]
+      --mode=MODE       mode for deletion [all,oldest,by-query] [default: "all"]
+      --query[=QUERY]   query to use in by-query mode
 ```
 
 #### Revision discard
