@@ -19,8 +19,8 @@ docker compose up -d
 ### Test your config
 
 * [Traefik](http://localhost:8888/dashboard/#/): The middleware application used to route packages
-* [elasticsearch](http://es.localhost/): the heart of elasticMS
 * [Kibana](http://kibana.localhost/app/dev_tools#/console): Power tools for elasticsearch
+* [es01](http://es01.localhost/),[es02](http://es02.localhost/),[es03](http://es03.localhost/): the hearts of elasticMS
 * [Mailhog](http://mailhog.localhost/): A mail catcher
 * [MinIO](http://minio.localhost/login): A S3 like service
 * [Tika](http://tika.localhost): A S3 like service
@@ -28,7 +28,6 @@ docker compose up -d
 
 
 ### Local ports exposed
-
 
 | Port | service         |
 |------|-----------------|
@@ -41,7 +40,6 @@ docker compose up -d
 | 6379 | redis           |
 | 8888 | traefik's admin |
 | 9000 | minio           |
-| 9200 | elasticsearch   |
 | 9998 | tika            |
 
 ## Prerequisite 
@@ -64,6 +62,7 @@ In order to initialize a Db open a terminal:
 
 ````bash
 cd docker
+cp .env.dist .env
 sh pg_init.sh demo public
 ````
 
@@ -72,7 +71,6 @@ Init the DB and create an admin user:
 ````bash
 cd ../elasticms-admin
 cp .env.dist .env
-composer install
 php bin/console doctrine:migrations:migrate
 php bin/console emsco:user:create --super-admin
 php bin/console asset:install --symlink
