@@ -62,6 +62,7 @@ In order to initialize a Db open a terminal:
 
 ````bash
 cd docker
+cp .env.dist .env
 sh pg_init.sh demo public
 ````
 
