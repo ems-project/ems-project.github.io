@@ -53,7 +53,7 @@ EMS settings are used over customizing the CKEditor experience.
 ```
 
 #### Paste
-If defined on paste (ctrl+v) an ajax call will be preformed, for sanitizing or pretty print the paste value.
+If defined on paste (ctrl+v) an ajax call will be preformed, for sanitizing and/or pretty print the paste value.
 Only if the value is a html.
 
 **IMPORTANT**: disable the default filtering from ckeditor: `pasteFiler: false`.
