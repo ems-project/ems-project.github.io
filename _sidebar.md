@@ -83,6 +83,7 @@
 - Packages
   - [Helper](/dev/helpers/index.md)
     - [ArrayHelper](/dev/helpers/array-helper.md)
+    - [Standards](/dev/helpers/standard.md)
   - [Xliff](/dev/xliff/index.md)
 - Contributors
   - [Migrate a repository](/maintainers/migrate-repo.md)

@@ -5,10 +5,11 @@ These are used for configurating and styling the [CKEditors](https://ckeditor.co
 
 <!-- TOC -->
 * [WYSIWYG](#wysiwyg)
-    * [Profiles](#profiles)
-        * [EMS settings](#ems-settings)
-    * [Style sets](#style-sets)
-        * [Styles set preview](#styles-set-preview)
+  * [Profiles](#profiles)
+    * [EMS settings](#ems-settings)
+      * [Paste](#paste)
+  * [Style sets](#style-sets)
+    * [Styles set preview](#styles-set-preview)
 <!-- TOC -->
 
 ## Profiles
@@ -25,19 +26,37 @@ For building the json, the ckeditor [Toolbar Configurator](https://ckeditor.com/
 
 EMS settings are used over customizing the CKEditor experience.
 
-| Property           | Description                                           |
-|--------------------|-------------------------------------------------------|
-| urlTypes           | Limit the url types when creating a url               |
-| urlAllContentTypes | Disable the option `All ContentTypes` on internal url |
+| Property           | Description                                                              |
+|--------------------|--------------------------------------------------------------------------|
+| urlTypes           | Limit the url types when creating a url                                  |
+| urlAllContentTypes | Disable the option `All ContentTypes` on internal url                    |
+| paste              | See [paste](#paste) section                                              |
+| paste.sanitize     | Call html standard [sanitize](../dev/helpers/standard.md#sanitize)       |
+| paste.prettyPrint  | Call html standard [prettyPrint](../dev/helpers/standard.md#prettyPrint) |
 
 ```json
 {
   "ems": {
     "urlTypes": ["url", "anchor", "localPage", "fileLink", "email"],
-    "urlAllContentTypes": true
+    "urlAllContentTypes": true,
+    "paste": {
+      "sanitize": {
+        "block_elements": ["a"],
+        "classes": { "allow": ["heading", "paragraph"] }
+      },
+      "prettyPrint": {
+        "drop-empty-elements": true
+      }
+    }
   }
 }
 ```
+
+#### Paste
+If defined on paste (ctrl+v) an ajax call will be preformed, for sanitizing and/or pretty print the paste value.
+Only if the value is a html.
+
+**IMPORTANT**: disable the default filtering from ckeditor: `pasteFiler: false`.
 
 ## Style sets
 
