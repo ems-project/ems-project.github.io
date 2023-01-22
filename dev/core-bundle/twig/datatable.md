@@ -197,6 +197,15 @@ The `row_context` parameter allows you to define variables in a twig template, w
 }) }}
 ```
 
+## protected
+
+By default this parameter `protected` is set to true and ensure that only authenticated user can see datatable contents. So event if the `emsco_datatable` function is called in a public view, the loading data ajax request won't work by default.
+
+If you want to give access to unauthenticated user you have to set this parameter to `false`. 
+
+This works the same way for the functions `emsco_datatable_excel_path` and `emsco_datatable_csv_path`.
+
+
 # emsco_datatable_excel_path
 
 This function is generating a path to an Excel generator route. This twig function has the same signature as the [emsco_datatable](#emsco_datatable) twig function.
