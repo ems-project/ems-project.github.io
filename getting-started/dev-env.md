@@ -13,6 +13,7 @@ In order to simplify development all those services are available in a docker co
 
 ```bash
 cd docker
+cp .env.dist .env
 docker compose up -d
 ```
 
