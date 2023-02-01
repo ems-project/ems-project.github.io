@@ -29,3 +29,15 @@ Default value for from is `ems_core.from_email` and `%ems_core.name%` parameter.
 {% do email.to('test@example.com').text('Body text') %}
 {% do emsco_send_email(email) %}
 ```
+
+## emsco_skip_notification
+Can be used in notification in order to not send the notification and display a warning message.
+
+```twig
+{{ emsco_skip_notification() }}
+```
+The warning message can be defined:
+
+```twig
+{{ emsco_skip_notification('The title field is not provided, the request for publication can not be send.') }}
+```
