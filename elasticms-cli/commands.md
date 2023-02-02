@@ -25,3 +25,22 @@ Options:
       --documents-folder[=DOCUMENTS-FOLDER]  Export documents folder
 ```
 
+
+
+#### Command
+
+Allow to rum command on a remote elasticMS. You need to be logged in first with the command `ems:admin:login`:
+
+```bash
+Usage:
+  ems:admin:command <remote-command>
+
+Arguments:
+  remote-command        Command to remote execute
+```
+
+Example:
+
+```bash
+php bin/console ems:admin:command 'ems:env:rebuild preview'
+```
