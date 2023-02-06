@@ -30,6 +30,16 @@ Examples:
 
 ## Elasticms Common Bundle variables
 
+### EMS_ELASTICSEARCH_CONNECTION_POOL
+
+Define the [elasticsearch sniffing strategy](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.17/connection_pool.html:
+- Default value: EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SniffingConnectionPool'
+- Possible values:
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SimpleConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SniffingConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\StaticConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\StaticNoPingConnectionPool'
+
 ### EMS_ELASTICSEARCH_HOSTS
 
 Define the elasticsearch cluster as an array (JSON encoded) of hosts:
