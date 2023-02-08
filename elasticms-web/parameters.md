@@ -142,6 +142,15 @@ Example base template.
 <link rel="stylesheet" href="{{ asset('css/app.css', 'emsch') }}">
 ```
 
+### EMSCH_LOCAL_PATH
+
+Overwrite the destination of the local files, by default `emsch:local:*` commands will search in `local/%environment_alias%` folder.
+
+Example for locally loading the demo inside local elasticms-web.
+```.dotenv
+EMSCH_LOCAL_PATH='../demo/skeleton'
+```
+
 ### EMSCH_SEARCH_LIMIT
 
 Specify the maximum number of expected document for template, translation and route content types. Default value `1000`
