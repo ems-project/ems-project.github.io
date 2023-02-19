@@ -1,29 +1,63 @@
 # Search
 
+Routes can use the search controller, which using a predefined search config.
+The search config can be defined in: 
+- Defaults option of the route (preferred)
+- `seach_config` option in `EMSCH_ENVS`
+- Environment variable `EMSCH_SEARCH_CONFIG`
+
 ## Config
 
 - types: _contenttype field in the result
 - fields: free text search in these fields
+- query_search: define the query for search
 - synonyms: can be used for translating emsLinks
 - sizes: define possible search sizes, default is the first one, use request param **'l'**.
 - sorts: key is the value of the request param **'s'**
 
-````json
-{
-  "types": ["page", "block"],
-  "fields": ["all_url_%locale%", "url"],
-  "synonyms": ["keyword"],
-  "sizes": [10,25,50],
-  "sorts": {
-      "recent": {"field": "search_date", "order": "desc", "unmapped_type": "date", "missing":  "_last"},
-      "title": "title_%locale%.keyword"
-  },
-  "filters": {
-     "ctype": {"type": "terms", "field": "search_type", "aggs_size": 10},
-     "fdate": {"type": "date_range", "field": "search_dates"}
-   }
-}  
-````
+```yaml
+search_example:
+    config:
+        path: '/search'
+        controller: 'emsch.controller.search::handle'
+        defaults: {
+            types: [ "page", "block" ],
+            fields: ["all_url_%locale%", "url"],
+            synonyms: ["keyword"],
+            sizes: [10,25,50],
+            sorts: {
+                recent: {field: "search_date", order: "desc", unmapped_type: "date", missing:  "_last"},
+                title: "title_%locale%.keyword"
+            },
+            filters: {
+                ctype: {type: "terms", field: "search_type", aggs_size: 10},
+                fdate: {type: "date_range", field: "search_dates"}
+            }
+   
+        }
+    template_static: template/page/search_page.html.twig
+```
+
+## Query search
+
+Define the search query, cannot be used in combination with the fields option.
+Example search route with query_search defined.
+
+```yaml
+search_example:
+    config:
+        path: '/search'
+        controller: 'emsch.controller.search::handle'
+        defaults: {
+            types: [ "page" ],        
+            query_search: { bool: { should: [
+                { multi_match: { query: "%query%", operator: "and", type: "bool_prefix", boost: 10, fields: ["live_search","live_search._2gram","live_search._3gram"] } },
+                { query_string: { query: "%query%", default_operator: "AND", boost: 5, default_field: "title" } },
+                { query_string: { query: "%query%", default_operator: "AND", default_field: "all" } }
+            ] } }     
+        }
+    template_static: template/page/search_page.html.twig
+```
 
 ## Filters
 
@@ -109,23 +143,23 @@ Default config options:
 - **field**: version_from_date
 - **secondary_field**: version_to_date
 
-| Document X | version_from_date | version_to_date |
-|---|---|---|
-| Original document | 2019-01-01T14:54:09+02:00 |  **2019-06-06T16:30:08+02:00** |
-| Major version | **2019-06-06T16:30:08+02:00** |  2019-08-08T19:22:05+02:00 |
-| Minor version | 2019-08-08T19:22:05+02:00 |  2020-01-01T10:15:17+02:00 |
-| Current version | 2020-01-01T10:15:17+02:00 |   |
+| Document X        | version_from_date             | version_to_date               |
+|-------------------|-------------------------------|-------------------------------|
+| Original document | 2019-01-01T14:54:09+02:00     | **2019-06-06T16:30:08+02:00** |
+| Major version     | **2019-06-06T16:30:08+02:00** | 2019-08-08T19:22:05+02:00     |
+| Minor version     | 2019-08-08T19:22:05+02:00     | 2020-01-01T10:15:17+02:00     |
+| Current version   | 2020-01-01T10:15:17+02:00     |                               |
 
-| Search value | result | 
-|---|---|
-| empty | Current version (because value = 'now') |
-| 19/02/2020 | Current version |
-| 01/01/2020 | Current version |
-| 31/12/2019 | Minor version |
-| 07/07/2018 | No result (document created on 01/01/2019) |
-| 06/06/2019 | Major version |
-| 19/02/2019 | Original document |
-| 01/08/2019 | Minor version |
+| Search value | result                                     | 
+|--------------|--------------------------------------------|
+| empty        | Current version (because value = 'now')    |
+| 19/02/2020   | Current version                            |
+| 01/01/2020   | Current version                            |
+| 31/12/2019   | Minor version                              |
+| 07/07/2018   | No result (document created on 01/01/2019) |
+| 06/06/2019   | Major version                              |
+| 19/02/2019   | Original document                          |
+| 01/08/2019   | Minor version                              |
 
 ## Nested queries
 
@@ -234,30 +268,3 @@ Get highlighted snippets from one or more fields in your search
   }
 }
 ````
-
-## Routes with specific search config
-
-A route can specify its own search config by adding a search_config request attribute:
-
-I.e. in the routes.yml files:
-````yaml
-emsch_search:
-    config:
-        path: { en: search, fr: chercher, nl: zoeken, de: suche }
-        defaults: {
-           search_config:{
-             "types": ["page", "publication", "slideshow"],
-             "fields": ["_all"],
-             "sizes": [10],
-             "sorts": {
-               "recent": {"field": "published_date", "order": "desc", "unmapped_type": "date", "missing":  "_last"}
-             }
-           }
-        }
-        controller: 'emsch.controller.search::handle'
-````
-
-This approach can be very useful in development mode as you don't have to restart your application to test another search config.
-
-
-
