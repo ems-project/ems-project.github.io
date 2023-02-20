@@ -229,6 +229,33 @@ The JSON config file list all web resources to synchronise for each document.
 }
 ```
 
+## Import assets as documents
+
+Instead of migrate asset files (PDF, docx, ...), that are in WYSIWYG field, has raw asset, you may want to migrate them in specific content types.
+To do so you can define the `htmlAsset2Document` configuration's attribute like this:
+
+```json
+{
+   ...,
+   "htmlAsset2Document": [
+      {
+         "file_field": "media_file",
+         "folder_field": "media_folder",
+         "path_field": "media_path",
+         "regex": "/^\\/sites\\/default\\/files\\/assets\\//",
+         "content_type": "media_file"
+      }
+   ]
+}
+```
+
+Each time that an internal link, starting by /sites/default/files/assets/, is found in the WYSIWYG the asset will be imported as a `media_file` document.
+And the link, within the WYSIWYG field will be replaced by `ems://object:media_file:ouuid-aaaaaaa` link.
+Instead of a `ems://asset:filehash` link.
+The `media_file` documents generated are compatible with the `media_library` component.
+Also the migration command will ensure that a `media_library` exists for all parent's directories.
+
+
 ## Filters
 
 ### class-cleaner
