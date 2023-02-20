@@ -417,6 +417,11 @@ Define the [connections](https://github.com/ems-project/EMSSubmissionBundle/blob
 Define the [default timeout](https://github.com/ems-project/EMSSubmissionBundle/blob/master/src/Resources/doc/index.md#default-timeout) for the submission bundle. Set to `10` by default.
 
 
+### EMSCO_CUSTOM_USER_OPTIONS_FORM
+If sets and refers to a Form entity, the corresponding form will be included in the User profile form (/user/edit/1).
+It's usefully in order to add extra parameters or attributes to a specific instance of elasticms. I.e. adding users working hours.
+
+
 ## Deprecated variables
 
 ## Since version 1.14.3
