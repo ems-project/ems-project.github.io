@@ -9,7 +9,9 @@
 - [ElasticMS Admin](/elasticms-admin/index.md)
   - [Environment variables](/elasticms-admin/environment-variables.md)
   - [Commands](/elasticms-admin/commands/commands.md)
-  - [ContentType](/elasticms-admin/contentType/contentType.md)
+  - ContentType
+    - [Config](/elasticms-admin/contentType/contentType.md)
+    - [Form](/elasticms-admin/contentType/form.md)
   - [Dashboard](/elasticms-admin/dashboard/dashboard.md)
   - [Environment](/elasticms-admin/environment/environment.md)
   - [User](/elasticms-admin/user/user.md)
