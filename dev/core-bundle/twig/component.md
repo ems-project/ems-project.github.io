@@ -13,26 +13,21 @@ The following components can be used in views/actions and dashboards.
 
 ## Media library
 
-Example `media_file` content type: [contenttype_media_library.json](/files/contenttype_media_library.json ':ignore')
+If you use this [media_library.json](/files/contenttype_media_library.json ':ignore') contentType, the only required attribute is `id`.
 
 ```twig
 {{ component('media_library', {
-    'id': 'examaple-media-lib',
-    'contentTypeName': 'media_file',
-    'fieldPath': 'media_path',
-    'fieldPathOrder': 'media_path.alpha_order',
-    'fieldLocation': 'media_folder',
-    'fieldFile': 'media_file'
+    'id': 'examaple-media-lib'
 }) }}
 ```
 
 | Property          | Default                | Description                                                |
 |-------------------|------------------------|------------------------------------------------------------|
 | `id`              |                        | **required** html id attribute                             |
-| `contentTypeName` |                        | **required** contentType name                              |
+| `contentTypeName` | media_file             | **required** contentType name                              |
 | `fieldPath`       | media_path             | **required** Field name for path value                     |
-| `fieldPathOrder`  | media_path.alpha_order | **required** Field name for ordering paths                 |
-| `fieldLocation`   | media_location         | **required** Field name for location                       |
+| `fieldPathOrder`  | media_path.alpha_order | Used for sorting folders and files.                        |
+| `fieldFolder`     | media_folder           | **required** Field name for folder path                    |
 | `fieldFile`       | media_file             | **required** Field name for asset                          |
 | `defaultValue`    |                        | Key/value array for defining default, example organization |
 | `searchQuery`     |                        | Example only load media files for an organization          |
