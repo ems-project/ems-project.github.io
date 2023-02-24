@@ -1,13 +1,34 @@
 # Upgrade
 
-## version 4.2.*
+  * [version 5.3.x](#version-53x)
+  * [version 4.2.x](#version-42x)
+  * [version 4.x](#version-4x)
+  * [Tips and tricks](#tips-and-tricks)
+
+## version 5.3.x
+
+### EMSCO_EMSCH_ENV
+
+In dashboards/views and action, we call `emsch_add_environment` for rendering a template from emsch.
+
+By defining `EMSCO_EMSCH_ENV` we no longer need to call `emsch_add_environment`.
+
+https://github.com/ems-project/elasticms/pull/349
+
+After defining remove the following line from all contentType(s) and dashboard(s).
+
+```twig
+{% do emsch_add_environment('preview'|get_environment.alias) %} 
+```
+
+## version 4.2.x
 
 ### Content type roles in twig
 Replace `is_granted(contentType.createRole)` → `is_granted(contentType.roles.create)`
 * createRole → roles.create
 * editRole → roles.edit
 
-## version 4.*
+## version 4.x
 
 ### Deprecated twig functions
 * replace `{% spaceless %}` by `{% apply spaceless %}`
