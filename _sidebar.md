@@ -3,9 +3,9 @@
   - [Setup your computer](/getting-started/local-dev.md)
   - [Dev environment](/getting-started/dev-env.md)
   - [Contributing](/getting-started/contributing.md)
+- [Upgrade](/upgrade.md)
 - Site building
   - [Twig](/site-building/twig.md)
-  - [Upgrade to ems 4](/site-building/upgrade-to-4.md)
 - [ElasticMS Admin](/elasticms-admin/index.md)
   - [Environment variables](/elasticms-admin/environment-variables.md)
   - [Commands](/elasticms-admin/commands/commands.md)
