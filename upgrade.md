@@ -14,16 +14,18 @@ If elasticms-admin defines `EMSCH_ENV` and `EMSCH_ENVS`, this is not needed anym
 
 ```.env
 EMSCH_ENV='preview'
-EMSCH_ENVS='{"preview":{"alias":"example_preview"}}' 
+EMSCH_ENVS='{"preview":{"alias":"example_preview", "router": false}}' 
 ```
 
 EMSCH_ENV will mark the preview environment as default, the following can also be done:
 ```.env
-EMSCH_ENVS='{"preview":{"alias":"example_preview", "default": true}}' 
+EMSCH_ENVS='{"preview":{"alias":"example_preview", "default": true, "router": false}}' 
 ```
 
-After defining remove the following line from all contentType(s) and dashboard(s).
+`Router` false, will disable the clientHelperBundle router the default environment. 
+Maybe the skeleton has a match all route defined.
 
+After defining remove the following line from all contentType(s) and dashboard(s).
 ```twig
 {% do emsch_add_environment('preview'|get_environment.alias) %} 
 ```
