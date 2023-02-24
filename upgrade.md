@@ -1,8 +1,15 @@
-# Check list and tips and tricks in order to upgrade to version 4
+# Upgrade
 
-## Checklist > 4.0
+## version 4.2.*
 
-#### Deprecated twig functions
+### Content type roles in twig
+Replace `is_granted(contentType.createRole)` → `is_granted(contentType.roles.create)`
+* createRole → roles.create
+* editRole → roles.edit
+
+## version 4.*
+
+### Deprecated twig functions
 * replace `{% spaceless %}` by `{% apply spaceless %}`
 * replace `{% endspaceless %}` by `{% endapply %}`
 * replace `{% for key, item in array if test %}` by  `{% for key, item in array|filter(key, item => test) %}`
@@ -10,11 +17,11 @@
   * I.e. replace `{{ 'search.results'|transchoice(results.hits.total.value|default(response.total)) -}}`
   * by `{{ 'search.results'|trans({'%count%': results.hits.total.value|default(response.total)}) -}}`
 
-#### Asset custom twig functions
+### Asset custom twig functions
 * replace `{{ emsch_assets(assets) }}` or `{%- do emsch_assets(assets) -%}` by `{%- set assetPath = emsch_assets_version(assets) -%}`
 * replace `{{ assets('resource') }}?{{ assets_hash }}` by `{{ assets('resource', 'emsch') }}`
 
-#### Email custom twig functions
+### Email custom twig functions
 ```twig
 {%- set email = emsco_generate_email(subjectMail) -%}
 {%- set email = email.setTo(toMail) -%}
@@ -31,7 +38,7 @@
 {{- emsco_send_email(email) -}}
 ```
 
-#### Misc
+### Misc
 * replace `/\.hits\.total/` by `{% var.hits.total.value|default(var.hits.total) %}`
   * replace `/\[\'hits\'\][\'total\']/` by `var['hits']['total']['value']|default(var['hits']['total'])`
 * remove the template environment
@@ -40,13 +47,6 @@
 * Do a force push to override the document
   * Keep in mind that all ouuids have changed, check in your content types for datalink to template documents
   * Rollback, in the routes.yaml, static templates have been replaced by their OUUID
-
-## Checklist > 4.2
-
-#### Content type roles in twig
-Replace `is_granted(contentType.createRole)` → `is_granted(contentType.roles.create)`
-* createRole → roles.create
-* editRole → roles.edit
 
 ## Tips and tricks
 
@@ -70,9 +70,7 @@ Template (template/redirects/asset.json.twig):
 
 {% block request -%}
 {% apply spaceless %}
-    {{ {
-        url: asset(app.request.get('slug'), 'emsch'),
-    }|json_encode|raw }}
+    {{ { url: asset(app.request.get('slug'), 'emsch') }|json_encode|raw }}
 {% endapply %}
 {% endblock -%}
 ```
