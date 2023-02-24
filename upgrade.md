@@ -7,13 +7,20 @@
 
 ## version 5.3.x
 
-### EMSCO_EMSCH_ENV
+### Deprecated emsch_add_environment 
 
 In dashboards/views and action, we call `emsch_add_environment` for rendering a template from emsch.
+If elasticms-admin defines `EMSCH_ENV` and `EMSCH_ENVS`, this is not needed anymore.
 
-By defining `EMSCO_EMSCH_ENV` we no longer need to call `emsch_add_environment`.
+```.env
+EMSCH_ENV='preview'
+EMSCH_ENVS='{"preview":{"alias":"example_preview"}}' 
+```
 
-https://github.com/ems-project/elasticms/pull/349
+EMSCH_ENV will mark the preview environment as default, the following can also be done:
+```.env
+EMSCH_ENVS='{"preview":{"alias":"example_preview", "default": true}}' 
+```
 
 After defining remove the following line from all contentType(s) and dashboard(s).
 

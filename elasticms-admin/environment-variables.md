@@ -253,9 +253,6 @@ Define the default bulk size for commands such as the `ems:environment:rebuild` 
 ```dotenv
 EMSCO_DEFAULT_BULK_SIZE=500
 ``` 
-
-### EMSCO_EMSCH_ENV
-Pass an environment name, which will be registered as an clientHelper environment.
   
 ### EMS_BACKEND_URL
 Define the url use by the user to access elasticms (in order to generate links in emails).
