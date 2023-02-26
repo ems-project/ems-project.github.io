@@ -44,7 +44,7 @@ The warning message can be defined:
 
 ## emsco_form
 
-Handle the current request with the form identified with its name. It allows to generate form in view, action or dashboard:
+Handle the current request with the form identified by its name. It allows to generate form in view, action or dashboard:
 
 ```twig
 {% set form = emsco_form('user') %}
