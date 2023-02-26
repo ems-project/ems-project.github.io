@@ -41,3 +41,23 @@ The warning message can be defined:
 ```twig
 {{ emsco_skip_notification('The title field is not provided, the request for publication can not be send.') }}
 ```
+
+## emsco_form
+
+Handle the current request with the form identified by its name. It allows to generate form in view, action or dashboard:
+
+```twig
+{% set form = emsco_form('user') %}
+{% set formView = form.createView %}
+
+{{ form_start(formView) }}
+    {{ form_row(attribute(formView, 'user')) }}
+    <div>
+        <button type="submit" class="btm btn-primary">Filter</submit>
+    </div>
+{{ form(formView) }}
+
+{% if form.valid %}
+    {{ form.data.user|json_encode }}
+{% endif %}
+```
