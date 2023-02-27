@@ -43,8 +43,8 @@ Be using an emsch template, you can overwrite the blocks for custom rendering.
 Using the twig `self` variable, the blocks can be defined in the same template.
 
 Available in blocks:
-* [Config](https://github.com/ems-project/elasticms/blob/5.x/EMS/core-bundle/src/Core/Component/MediaLibrary/MediaLibraryConfig.php)
-* [MediaFile](https://github.com/ems-project/elasticms/blob/5.x/EMS/core-bundle/src/Core/Component/MediaLibrary/MediaLibraryFile.php) only in `mediaLibraryFileRow`
+* [Config](https://github.com/ems-project/elasticms/blob/HEAD/EMS/core-bundle/src/Core/Component/MediaLibrary/MediaLibraryConfig.php)
+* [MediaFile](https://github.com/ems-project/elasticms/blob/HEAD/EMS/core-bundle/src/Core/Component/MediaLibrary/MediaLibraryFile.php) only in `mediaLibraryFileRow`
 * The context if defined in config
 
 The following example contains all possible blocks, with their default rendering.
