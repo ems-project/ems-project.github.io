@@ -53,6 +53,7 @@
     - [Routes](/dev/core-bundle/routes.md)
     - [Tips & Tricks](/dev/core-bundle/tricks.md)
     - Twig
+      - [Component](/dev/core-bundle/twig/component.md)
       - [Core](/dev/core-bundle/twig/core.md)
       - [Datatable](/dev/core-bundle/twig/datatable.md)
       - [Extractor](/dev/core-bundle/twig/extractor.md)
