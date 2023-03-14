@@ -44,43 +44,41 @@ For enabling spreadsheet generation use the **emsch.controller.spreadsheet** con
 ```yaml
 test_xlsx:
   config:
-    path: /test.xlsx
+    path: /example-spreadsheet
     controller: 'emsch.controller.spreadsheet'
-  template_static: template/test/xlsx.json.twig
+  template_static: template/test/spreadsheet.json.twig
   order: 4
 ```
 
-In Twig you can set the spreadsheet options by generating a JSON
+Add style on Cell are available [See on EMSCommonBundle documentation](/dev/common-bundle/spreadsheet.md)
+
+Example writer `xlsx`
 ```twig
 {% set config = {
-    "filename": "custom-filename",
+    "filename": "example",
     "disposition": "attachment",
     "writer": "xlsx",
     "sheets": [
-        {
-            "name": "Sheet 1",
-            "rows": [
-                ["A1", "A2"],
-                ["B1", "B2"],
-            ]
-        },
-        {
-            "name": "Sheet 2",
-            "rows": [
-                ["A1", "A2"],
-                ["B1", "B2"],
-            ]
-        },
+        { "name": "Sheet 1", "rows": [ ["A1", "A2"], ["B1", "B2"] ] },
+        { "name": "Sheet 2", "rows": [ ["A1", "A2"], ["B1", "B2"] ] },
     ]
 } %}
 {{- config|json_encode|raw -}}
 ```
 
-Two writer are supported:
- - `xlsx`: Generate a Microsoft Excel file
- - `csv`: Generate a CSV file
-
-Add style on Cell are available [See on EMSCommonBundle documentation](https://github.com/ems-project/EMSCommonBundle/tree/master/doc/spreadsheet.md)
+Example writer `csv`
+```twig
+{% set config = {
+    "filename": "example",
+    "disposition": "attachment",
+    "writer": "csv",
+    "csv_separator": ",",
+    "sheets": [
+        { "rows": [ ["A1", "A2"], ["B1", "B2"], ["C1", "C2"] ] }
+    ]
+} %}
+{{- config|json_encode|raw -}}
+```
 
 ## Route to an asset
 
