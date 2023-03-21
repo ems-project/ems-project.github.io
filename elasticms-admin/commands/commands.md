@@ -4,6 +4,7 @@
 * [Commands](#commands)
   * [EMSCO (CoreBundle)](#emsco-corebundle)
     * [Content Type](#content-type)
+      * [Content Type switch default environment](#content-type-switch-default-environment)
       * [Content Type transform](#content-type-transform)
     * [Environment](#environment)
       * [Environment align](#environment-align)
@@ -24,6 +25,7 @@
       * [User deactivate](#user-deactivate)
       * [User demote](#user-demote)
       * [User promote](#user-promote)
+      * [User update option](#user-update-option)
     * [XLIFF](#xliff)
       * [XLIFF extract](#xliff-extract)
       * [XLIFF update](#xliff-update)
@@ -355,6 +357,32 @@ Arguments:
 
 Options:
       --super           Instead specifying role, use this to quickly add the super administrator role
+```
+
+#### User update option
+
+```
+Description:
+  Update a user option.
+
+Usage:
+  emsco:user:update-option [options] [--] <option> <value>
+
+Arguments:
+  option                simplified_ui|custom_options
+  value                 value for updating
+
+Options:
+      --email[=EMAIL]   use wildcard % (%@example.dev)
+
+Help:
+  The emsco:user:update-option command changes an option of a user(s):
+
+    Enable "simplified_ui" for all users
+    php bin/console emsco:user:update-option simplified_ui true
+
+    Set country "Belgium" for all users with a .be email address
+    php bin/console emsco:user:update-option custom_options '{"country":"Belgium"}' --email='%.be'
 ```
 
 ### XLIFF 
