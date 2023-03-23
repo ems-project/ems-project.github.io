@@ -7,6 +7,8 @@ ContentType contain the structure, default environment and information for all r
   * [Properties](#properties)
   * [Default value](#default-value)
   * [Fields](#fields)
+  * [Settings](#settings)
+    * [Tasks](#tasks)
   * [Roles](#roles)
 * [Actions](#actions)
   * [Embed](#embed)
@@ -70,7 +72,8 @@ ContentType contain the structure, default environment and information for all r
 | versionDateFromField |                                              |
 | versionDateToField   |                                              |
 | roles                | Json field see [roles](#Roles)               |
-| fields               | Json field see [fields](#Fields)             |
+| fields               | Json field see [fields](#Fields)             | 
+| settings             | See [settings](#Settings)                    | 
 
 ## Default value
 
@@ -98,6 +101,27 @@ These are used for displaying revision information.
 | business_id | Used in export/import documents                          |
 | category    | Used in criteria view                                    |
 | asset       | Used in asset link from WYSIWYG                          |
+
+## Settings
+
+| Setting               | Description                          |
+|-----------------------|--------------------------------------|
+| Task enabled          | see [#Tasks]                         |
+| Hide revision sidebar | If enabled will not show the sidebar |
+
+### Tasks
+
+When tasks are enabled, every user can create, handle, validate tasks inside a revision.
+
+If a user completes a task, he can **only** validate the task if he is the requester.
+
+Only the requester and task managers can delete the tasks
+
+On all tasks steps the assignee and/or requester will receive **emails**.
+
+Users who have the role `TASK_MANAGER` can see all current tasks in their dashboard overview.
+
+Task manager can also delete tasks, but the requester will receive an email.
 
 ## Roles
 
