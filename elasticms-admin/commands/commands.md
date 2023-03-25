@@ -369,7 +369,7 @@ Usage:
   emsco:user:update-option [options] [--] <option> <value>
 
 Arguments:
-  option                simplified_ui|custom_options
+  option                simplified_ui|allowed_configure_wysiwyg|custom_options
   value                 value for updating
 
 Options:
@@ -380,6 +380,9 @@ Help:
 
     Enable "simplified_ui" for all users
     php bin/console emsco:user:update-option simplified_ui true
+
+    Enable "allowed_configure_wysiwyg" for all users
+    php bin/console emsco:user:update-option allowed_configure_wysiwyg true
 
     Set country "Belgium" for all users with a .be email address
     php bin/console emsco:user:update-option custom_options '{"country":"Belgium"}' --email='%.be'
