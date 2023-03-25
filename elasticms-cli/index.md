@@ -6,6 +6,7 @@ This is a command client to interact with and ElasticMS Admin with some helper c
 
 | Commands                                               | Description                                                  |
 |--------------------------------------------------------|:-------------------------------------------------------------|
-| [emscli:web:migrate](/elasticms-cli/migrate-web.md) | Migration web resources to elaticms documents                |
-| [emscli:documents:update](/elasticms-cli/documents.md)                | Update documents form excel or csv with custom configuration |   
-| [emscli:web:audit](/elasticms-cli/audit.md)                           | Audit a website                                              |
+| [emscli:web:migrate](/elasticms-cli/migrate-web.md)    | Migration web resources to elaticms documents                |
+| [emscli:documents:update](/elasticms-cli/documents.md) | Update documents form excel or csv with custom configuration |   
+| [emscli:web:audit](/elasticms-cli/audit.md)            | Audit a website                                              |
+| [emscli:web:audit](/elasticms-cli/media-file.md)       | Sync a folder to a media-file content typ                    |
