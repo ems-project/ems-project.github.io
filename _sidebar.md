@@ -24,6 +24,7 @@
   - [Web Audit](/elasticms-cli/audit.md)
   - [Update documents](/elasticms-cli/documents.md)
   - [Migrate Web](/elasticms-cli/migrate-web.md)
+  - [Media File](/elasticms-cli/media-file.md)
 - Bundles
   - [Client Helper](/dev/client-helper-bundle/index.md)
     - [Environment](/dev/client-helper-bundle/environment.md)
