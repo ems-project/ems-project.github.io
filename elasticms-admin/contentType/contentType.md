@@ -91,16 +91,17 @@ The result should be a valid JSON rendered by Twig template.
 On a content type we can define fields from the elasticsearch mapping.
 These are used for displaying revision information.
 
-| Field       | Description                                              |
-|-------------|----------------------------------------------------------|
-| label       | Display label for the revision                           |
-| color       | Display color for the revision                           |
-| sort        | Default sorting in choice lists (better use querySearch) |
-| tooltip     | Add tooltip on dataLinks                                 |
-| circles     | Field containing the revision circles                    |
-| business_id | Used in export/import documents                          |
-| category    | Used in criteria view                                    |
-| asset       | Used in asset link from WYSIWYG                          |
+| Field       | Description                                                                             |
+|-------------|-----------------------------------------------------------------------------------------|
+| display     | Expression for display the revision using [emsco_display](./dev/core-bundle/twig/core#emsco_display) |
+| label       | Display label for the revision                                                          |
+| color       | Display color for the revision                                                          |
+| sort        | Default sorting in choice lists (better use querySearch)                                |
+| tooltip     | Add tooltip on dataLinks                                                                |
+| circles     | Field containing the revision circles                                                   |
+| business_id | Used in export/import documents                                                         |
+| category    | Used in criteria view                                                                   |
+| asset       | Used in asset link from WYSIWYG                                                         |
 
 ## Settings
 
