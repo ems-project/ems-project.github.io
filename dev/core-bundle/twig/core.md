@@ -61,3 +61,24 @@ Handle the current request with the form identified by its name. It allows to ge
     {{ form.data.user|json_encode }}
 {% endif %}
 ```
+
+## emsco_display
+
+Returns a string representation for a elasticSearch document, revision or EMS link.
+
+Pass a symfony [expression](https://symfony.com/doc/current/components/expression_language.html) or define a default in the contentType field `display`.
+
+This filter replaces the filter `|data_label`.
+
+Context for the expression: 
+- rawData: array containing the rawData from document or revision
+- userLocale: the preferred locale of the user, fallback environment variable `EMSCO_FALLBACK_LOCALE`
+
+```twig
+{# Print the label in the users preferred locale, fallback to label_fr #}
+{% set document = 'page:e6f73dd73a5a3f5336bd3fe52d0304b26e437f34'|emsch_get %}
+{{ document|emsco_display("(rawData['label_'~userLocale] ?? rawData['label_fr'])")
+
+{# display from emsLink and using contentTypes defined display value #}
+{{ 'page:e6f73dd73a5a3f5336bd3fe52d0304b26e437f34'|emsco_display }}
+```
