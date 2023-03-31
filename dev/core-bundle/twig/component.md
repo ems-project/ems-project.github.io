@@ -49,6 +49,10 @@ Available in blocks:
 
 The following example contains all possible blocks, with their default rendering.
 
+* `mediaLibraryFileRow`: links have by default the `ems-id` data attribute: 
+  
+  When the dashboard is used as file or object browser (wysiwyg) the ems-id will be used as value.
+
 ```twig
 {{ block("body", "@EMSCH/template/dashboard/media_library.twig") }}
 ```
@@ -95,7 +99,7 @@ The following example contains all possible blocks, with their default rendering
 {%- block mediaLibraryFileRow -%}
     {% apply spaceless %}
         <li>
-            <div><a href="{{ url }}" download="{{ media.file.filename }}">{{ media.file.filename }}</a></div>
+            <div><a href="{{ url }}" download="{{ media.file.filename }}" data-ems-id="{{ media.emsId }}">{{ media.file.filename }}</a></div>
             <div>{{ media.file.mimetype|trans({}, 'emsco-mimetypes') }}</div>
             <div class="text-right">{{ media.file.filesize|format_bytes }}</div>
         </li>
