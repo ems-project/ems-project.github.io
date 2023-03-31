@@ -30,6 +30,7 @@ EMS settings are used over customizing the CKEditor experience.
 |--------------------|--------------------------------------------------------------------------|
 | urlTypes           | Limit the url types when creating a url                                  |
 | urlAllContentTypes | Disable the option `All ContentTypes` on internal url                    |
+| translations       | See [translations](#translations) section                                |
 | paste              | See [paste](#paste) section                                              |
 | paste.sanitize     | Call html standard [sanitize](../dev/helpers/standard.md#sanitize)       |
 | paste.prettyPrint  | Call html standard [prettyPrint](../dev/helpers/standard.md#prettyPrint) |
@@ -39,6 +40,12 @@ EMS settings are used over customizing the CKEditor experience.
   "ems": {
     "urlTypes": ["url", "anchor", "localPage", "fileLink", "email"],
     "urlAllContentTypes": true,
+    "translations": {
+      "nl": {
+        "adv_link.selectFileLabel": "Bestand uploaden",
+        "common.browseServer": "Bladeren op de server"
+      }
+    },
     "paste": {
       "sanitize": {
         "block_elements": ["a"],
@@ -57,6 +64,11 @@ If defined on paste (ctrl+v) an ajax call will be preformed, for sanitizing and/
 Only if the value is a html.
 
 **IMPORTANT**: disable the default filtering from ckeditor: `pasteFiler: false`.
+
+### Translations
+We can overwrite the labels used inside dialogs, for example the browser server button.
+The translation key is prefix by the CKEditor section (pluginName,common,...).
+For the moment translations for toolbar buttons is not supported.
 
 ## Style sets
 
