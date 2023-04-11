@@ -7,7 +7,7 @@ Create a new revision from twig
 
 ```twig
 {% set contentType = 'page'|get_content_type %}
-{% set newRevision = emsco_revision_create(contentType, emsco_uuid(), {
+{% set newRevision = emsco_revision_create(contentType, ems_uuid(), {
     'title': 'Test',
     'locale': 'de'
 }) %}

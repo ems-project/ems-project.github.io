@@ -14,6 +14,7 @@
   * [ems_html_decode](#ems_html_decode)
   * [ems_hash](#ems_hash)
   * [format_bytes](#format_bytes)
+  * [ems_uuid](#ems_uuid)
 
 
 
@@ -230,3 +231,12 @@ A second 'precision' parameter can be defined:
 ````twig
 {{ 21666|format_bytes(1) }} {# displays: 21.2 KB #}
 ````
+
+## ems_uuid
+
+Generate a version 4 (random) UUID. [More info](https://uuid.ramsey.dev/en/stable/rfc4122/version4.html).
+
+````twig
+{{ ems_uuid() }} {# displays: 21.16 KB #}
+````
+

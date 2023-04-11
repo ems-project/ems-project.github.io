@@ -240,7 +240,7 @@ This is done by defining a block named `row`, which outputs a valid json.
 {%- block row -%}
 {%- set label = [row.title_nl, row.title_fr]|join(' / ') -%}
 {{- {
-    id: emsco_uuid(),
+    id: ems_uuid(),
     label: (label),
     type: 'item',
     object: (row|merge({
