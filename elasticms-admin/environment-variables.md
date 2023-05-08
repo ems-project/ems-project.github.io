@@ -388,6 +388,10 @@ Can fine tune the ems_weblize twig filter by adjusting the regex used to remove 
 
 Can fine tune the ems_weblize twig filter by adjusting the regex used to replace some characters by a dash `-`. Default value `/([^a-zA-Z0-9\_\|\ \-\.])|(\.$)/`
 
+### EMS_STORE_DATA_SERVICES
+
+Define (JSON format) the store data services, in the priority order. See the [Stora Data documentation](../recipes/store-data.md) for more details. Default value `[{"type":"db"}]`
+
 ## Elasticms Form Bundle variables
 
 ### EMSF_HASHCASH_DIFFICULTY

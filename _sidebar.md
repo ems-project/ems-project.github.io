@@ -84,6 +84,7 @@
 - Recipes
   - [Export as word](/recipes/export-as-word.md)
   - [Hierarchy to JSON Netsed](/recipes/hierarchy-to-json-netsed.md)
+  - [Store Data](/recipes/store-data.md)
 - Packages
   - [Helper](/dev/helpers/index.md)
     - [ArrayHelper](/dev/helpers/array-helper.md)

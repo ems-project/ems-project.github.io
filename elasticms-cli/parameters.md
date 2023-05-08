@@ -80,3 +80,8 @@ Redis host for the common cache service. Default `localhost`.
 ### EMS_REDIS_PORT
 
 Redis port for the common cache service. Default `6379`.
+
+
+### EMS_STORE_DATA_SERVICES
+
+Define (JSON format) the store data services, in the priority order. See the [Stora Data documentation](../recipes/store-data.md) for more details. By default, the store data functionalities are disabled.
