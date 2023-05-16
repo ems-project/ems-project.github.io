@@ -47,6 +47,20 @@ CAUTION: The cache services should be always be used in combination with another
 EMS_STORE_DATA_SERVICES='[{"type":"cache"},{"type":"db"}]'
 ```
 
+### File storage
+
+The data are saved in a folder.
+
+Parameter:
+ * `type`: with the value `fs`
+ * `path`: path to a folder where the sata will be stored
+
+
+Example: 
+```yaml
+EMS_STORE_DATA_SERVICES='[{"type":"fs", "path":"/opt/store_data"}]'
+```
+
 ## Using it
 
 Here is a form. It retrieves (or intializes) a `forum` data. And it extracts the `data` value as value form the `data` textarea.
