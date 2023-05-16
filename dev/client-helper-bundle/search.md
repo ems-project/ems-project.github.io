@@ -66,7 +66,7 @@ search_example:
 - public: default true, only public filters will accept request values
 - active: default true, deactivated filter can become active by passing the filterName
 - field: the search field in the elasticsearch document
-- agg_size: for adding the field in aggregations
+- aggs_size: for adding the field in aggregations
 - post_filter: filter after making aggregations (see Post Filtering)
 - optional: if not all docs contain this filter, default false
 ````json
