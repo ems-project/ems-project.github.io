@@ -14,6 +14,7 @@ The search config can be defined in:
 - synonyms: can be used for translating emsLinks
 - sizes: define possible search sizes, default is the first one, use request param **'l'**.
 - sorts: key is the value of the request param **'s'**
+- minimum_should_match: the bool query's minimum should match parameter, default `1`. Check the [minimum_should_match elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-minimum-should-match.html).
 
 ```yaml
 search_example:
@@ -69,6 +70,7 @@ search_example:
 - aggs_size: for adding the field in aggregations
 - post_filter: filter after making aggregations (see Post Filtering)
 - optional: if not all docs contain this filter, default false
+- clause: add as must, must_not or should clause the filter to the bool query, default must
 ````json
 {
    "filterName": {"type":  "type", "field":  "field", "aggs_size": 10, "post_filter":  true, "optional":  true}
