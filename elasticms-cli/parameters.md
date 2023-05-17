@@ -85,3 +85,9 @@ Redis port for the common cache service. Default `6379`.
 ### EMS_STORE_DATA_SERVICES
 
 Define (JSON format) the store data services, in the priority order. See the [Stora Data documentation](../recipes/store-data.md) for more details. By default, the store data functionalities are disabled.
+
+## CLI variables
+
+### EMSCLI_TIKA_PATH
+
+Path to the Tika JAR. Default `/opt/bin/tika.jar`. If your are using a elasticMS CLI, a Tika jar is included. From version 5.6.
