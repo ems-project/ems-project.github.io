@@ -18,6 +18,7 @@
   * [ems_html_decode](#ems_html_decode)
   * [ems_hash](#ems_hash)
   * [format_bytes](#format_bytes)
+  * [ems_ascii_folding](#ems_ascii_folding)
 
 
 
@@ -308,3 +309,16 @@ A second 'precision' parameter can be defined:
 {{ 21666|format_bytes(1) }} {# displays: 21.2 KB #}
 ````
 
+## ems_ascii_folding
+
+Convert UTF-8 characters in string by their equivalent in the "old" ascii table:
+
+````twig
+{{ 'Chemin d''accès: î$]&²'|ems_ascii_folding }} {# displays: Chemin d acces: i$]&² #}
+````
+
+It's useful if you want to sort an array regardless accented characters:
+
+````twig
+{% set sortedArray = notSortedArray|sort((a, b) => a|ems_ascii_folding <=> b|ems_ascii_folding) %}
+````
