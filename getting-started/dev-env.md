@@ -1,5 +1,16 @@
 # Development environment
 
+<!-- TOC -->
+* [Development environment](#development-environment)
+  * [Start external micro-services](#start-external-micro-services)
+    * [Test your config](#test-your-config)
+    * [Local ports exposed](#local-ports-exposed)
+  * [Prerequisite](#prerequisite-)
+  * [Init elasticMS](#init-elasticms)
+  * [Load and save DB dumps](#load-and-save-db-dumps)
+  * [Identity provider (IDP) (Keycloak)](#identity-provider-idp-keycloak)
+<!-- TOC -->
+
 ## Start external micro-services
 
 elasticMS comes with multiple micro-services:
@@ -94,10 +105,48 @@ cd docker
 sh pg_load.sh demo dump_demo.sql
 ```
 
-
 To make a dump:
 
 ```bash
 cd docker
 sh pg_dump.sh demo demo > dump_demo.sql
+```
+
+## Identity provider (IDP) (Keycloak)
+
+Elasticms-web has a build in SAML authenticator. 
+
+For developing and testing purposes you may want to start an IDP. 
+Therefor we created a subdirectory 'idp' containing the services (keycloak & postgres).
+
+```bash
+cd docker/idp 
+docker compose up -d
+```
+
+1) Check if available on http://keycloak.localhost or http://localhost:9081
+
+   Administration Console -> `admin:changeme`
+
+2) Import the data and restart the keycloak service
+    ```bash
+    docker compose exec keycloak sh /opt/keycloak/bin/kc.sh import --dir /data
+    docker compose up -d --force-recreate
+    ```
+   
+3) Verify `elasticms` realm is created
+
+   Visit http://keycloak.localhost/realms/elasticms
+
+4) Login with elasticms users
+
+   http://keycloak.localhost/realms/elasticms/account
+
+   - user1@example.com changeme
+   - user2@example.com changeme
+
+If you want to export the data and versioning new settings
+
+```bash
+docker compose exec keycloak sh /opt/keycloak/bin/kc.sh export --dir /data --users same_file --realm elasticms
 ```
