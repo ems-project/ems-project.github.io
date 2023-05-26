@@ -2,18 +2,134 @@
 
 <!-- TOC -->
 * [Routing](#routing)
-  * [Pdf generation](#pdf-generation)
-  * [Spreadsheet generation](#spreadsheet-generation)
-  * [Route to an asset](#route-to-an-asset)
-  * [Profiler](#profiler)
-  * [EMSCH cache (sub-request)](#emsch-cache--sub-request-)
-    * [Return HTTP codes:](#return-http-codes-)
-    * [Note](#note)
-  * [Search route](#search-route)
-  * [Redirect route](#redirect-route)
+  * [Options](#options)
+  * [Config Defaults](#config-defaults)
+  * [Controllers](#controllers)
+    * [Redirect controller](#redirect-controller)
+    * [Search controller](#search-controller)
+    * [Pdf controller](#pdf-controller)
+    * [Spreadsheet controller](#spreadsheet-controller)
+    * [Asset controller](#asset-controller)
+  * [EMSCH cache (sub-request)](#emsch-cache-sub-request)
 <!-- TOC -->
 
-## Pdf generation
+## Options
+
+Skeleton routes can have the following options
+
+* `config`: required: define the symfony routing config (path, defaults, requirements) 
+* `template_static`: optional: define a template path
+* `template_source`: optional: define a property path in the document received from the route query. example *[template]*
+* `query`: optional: search a document, if not found 404.
+* `index_regex`: optional: define an index regex for executing the query
+
+The following route demonstrates the power of skeleton routes.
+Inside `template_static|query|index_regex` options we can replace by route params, pattern %param%.
+
+```yaml
+home:
+    config:
+        path: '{_locale}/{alias}/page/{id}'
+        defaults: { _locale: 'nl' }
+        requirements: { _locale: 'nl|fr', alias: 'snapshot1|snapshot2' }
+    template_static: template/homepage_%alias%.html.twig
+    query: '{"query":{"bool":{"must":[{"term":{"_contenttype":{"value":"page"}}},{"term":{"_id":{"value":"%id%"}}}]}},"size":1}'
+    index_regex: demo_ma_%alias%
+```
+
+## Config Defaults
+
+| Name           | value      | Description                                                                                                                                          |
+|----------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| _profiler      | true/false | You can disable the profiler for a specific route, by setting **_profiler** to false.                                                                |
+| _authenticated | true/false | The AuthenticatedListener will throw an **AccessDeniedException** if the user is not fully authenticated. See [security](/elasticms-web/security.md) |
+
+
+## Controllers
+
+### Redirect controller
+
+A route can be defined in order to redirect the request to another url. An easy approach is by using the redirect Symfony controller:
+
+````yaml
+favicon_ico:
+    config:
+      path: /favicon.ico
+      controller: 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction'
+      defaults: { permanent: true, path: '/bundles/assets/static/icon64.png' }
+````
+
+But if you need logic to specify the redirect url you may use the emsch redirect controller's function:
+
+````yaml
+favicon_ico:
+  config:
+    path: /favicon.ico
+    controller: 'emsch.controller.router::redirect'
+  template_static: template/ems/redirect_favicon.json.twig
+````
+
+And in the redirect_favicon.json.twig template:
+
+````twig
+{% apply spaceless %}
+      {% set assetPath = emsch_assets_version('240c99f842c118a733f14420bf40e320bdb500b9') %}
+      {{ {'url': asset('static/favicon-96x96.png', 'emsch'), 'status': 301 }|json_encode|raw }}
+{% endapply %}
+````
+
+The template's response should be a JSON containing those optional parameters:
+- `url`: the target url to redirect to
+- `status`: the HTTP return's code. Default value: 302
+- `message`: A 404 message. Default value 'Page not found'
+
+If the url parameter is not defined, the controller will throw a 404 with the message parameter.
+
+Instead of redirecting via an HTTP redirect response you can also directly return an assets. To do so, instead of giving a path to redirect to, give a path to a file:
+
+````twig
+{% extends '@EMSCH/template/variables.twig' %}
+
+{%- block request %}
+    {% apply spaceless %}
+        {{ {
+            path: emsch_asset('img/head/icon.png', {
+                _config_type: 'image',
+                _width: 128,
+                _height: 128,
+                _quality: 0,
+                _get_file_path: true,
+            }),
+        }|json_encode|raw }}
+    {% endapply %}
+{% endblock request -%}
+````
+
+In this previous example we assume that a call to the `emsch_assets_version` function has been made in the `template/variables.twig` template.
+
+### Search controller
+
+See the [search documentation](./search.md) fo more information.
+
+I.e.:
+````yaml
+emsch_search:
+    config:
+        path: { en: search, fr: chercher, nl: zoeken, de: suche }
+        defaults: {
+           search_config:{
+             "types": ["page", "publication", "slideshow"],
+             "fields": ["_all"],
+             "sizes": [10],
+             "sorts": {
+               "recent": {"field": "published_date", "order": "desc", "unmapped_type": "date", "missing":  "_last"}
+             }
+           }
+        }
+        controller: 'emsch.controller.search::handle'
+````
+
+### Pdf controller
 
 For enabling pdf generation use the **emsch.controller.pdf** controller
 ```json
@@ -38,7 +154,7 @@ In Twig you can set/override the pdf options with custom meta tags in the head s
 </head>
 ```
 
-## Spreadsheet generation
+### Spreadsheet controller
 
 For enabling spreadsheet generation use the **emsch.controller.spreadsheet** controller
 ```yaml
@@ -80,7 +196,7 @@ Example writer `csv`
 {{- config|json_encode|raw -}}
 ```
 
-## Route to an asset
+### Asset controller
 
 Routes can also return an assets, generated by a template containing json.
 
@@ -114,19 +230,6 @@ example_asset:
  - `headers`: Associative with response headers. 
  - `immutable`: optional for defining if the asset is immutable [devault value = false]
 
-## Profiler
-
-You can disable the profiler for a specific route, by setting **_profiler** to false.
-
-```yaml
-example:
-    config:
-        path: '/example-no-profiler'
-        defaults: { _profiler: false }
-    template_static: template/page.html.twig
-```
-
-
 ## EMSCH cache (sub-request)
 
 For routes that **not** return a streamable response we can enable caching that is generated in a subRequest.
@@ -145,7 +248,7 @@ pdf_example:
     template_static: template/my-pdf-example.html.twig
 ```
 
-### Return HTTP codes:
+Return HTTP codes:
 * **201**: On the first request when nothing is cached, this means the sub-request is started
 * **202**: If the sub-request is still running
 * **200**: The sub-request was finished and the response comes from the cache
@@ -153,93 +256,18 @@ pdf_example:
   * Max memory limit reached? 
   * Max execution limit reached, you can increase this on the route.
 
-### Note
 
-For now everything is cached using the symfony cache, this means if we restart the server the cache is cleared.
-The timestamp in the route can be the max _finalization time of your content types, this way the cache will not be used if the content has changed.
+> For now everything is cached using the symfony cache, this means if we restart the server the cache is cleared. The 
+> timestamp in the route can be the max _finalization time of your content types, this way the cache will not be used 
+> if the content has changed.
 
-This setup only works with php-fpm (no windows) because we continue the process after the response was send (onKernelTerminate).
-> Internally, the HttpKernel makes use of the fastcgi_finish_request PHP function. This means that at the moment, only the PHP FPM server API is able to send a response to the client while the server's PHP process still performs some tasks. With all other server APIs, listeners to kernel.terminate are still executed, but the response is not sent to the client until they are all completed.
+> This setup only works with php-fpm (no windows) because we continue the process after the response is finished
+> (onKernelTerminate). 
+> 
+> Internally, the HttpKernel makes uses of the fastcgi_finish_request PHP function. This means 
+> that for now, only the PHP FPM server API can send a response to the client while the server's PHP 
+> process still performs some tasks. 
+> 
+> With all other server APIs, listeners to `kernel.terminate` are still executed, but the response is not sent to 
+> the client until they are all completed.
 
-
-## Search route
-
-See the [search documentation](./search.md) fo more information.
-
-I.e.:
-````yaml
-emsch_search:
-    config:
-        path: { en: search, fr: chercher, nl: zoeken, de: suche }
-        defaults: {
-           search_config:{
-             "types": ["page", "publication", "slideshow"],
-             "fields": ["_all"],
-             "sizes": [10],
-             "sorts": {
-               "recent": {"field": "published_date", "order": "desc", "unmapped_type": "date", "missing":  "_last"}
-             }
-           }
-        }
-        controller: 'emsch.controller.search::handle'
-````
-
-## Redirect route
-
-A route can be defined in order to redirect the request to another url. An easy approach is by using the redirect Symfony controller:
-
-````yaml
-favicon_ico:
-    config:
-      path: /favicon.ico
-      controller: 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction'
-      defaults: { permanent: true, path: '/bundles/assets/static/icon64.png' }
-````
-
-But if you need logic to specify the redirect url you may use the emsch redirect controller's function:
-
-````yaml
-favicon_ico:
-  config:
-    path: /favicon.ico
-    controller: 'emsch.controller.router::redirect'
-  template_static: template/ems/redirect_favicon.json.twig
-````
-
-And in the redirect_favicon.json.twig template:
-
-````twig
-{% apply spaceless %}
-      {% set assetPath = emsch_assets_version('240c99f842c118a733f14420bf40e320bdb500b9') %}
-      {{ {'url': asset('static/favicon-96x96.png', 'emsch'), 'status': 301 }|json_encode|raw }}
-{% endapply %}
-````
-
-The template's response should be a JSON containing those optional parameters:
- - `url`: the target url to redirect to
- - `status`: the HTTP return's code. Default value: 302
- - `message`: A 404 message. Default value 'Page not found'
-
-If the url parameter is not defined, the controller will throw a 404 with the message parameter.
-
-Instead of redirecting via an HTTP redirect response you can also directly return an assets. To do so, instead of giving a path to redirect to, give a path to a file:
-
-````twig
-{% extends '@EMSCH/template/variables.twig' %}
-
-{%- block request %}
-    {% apply spaceless %}
-        {{ {
-            path: emsch_asset('img/head/icon.png', {
-                _config_type: 'image',
-                _width: 128,
-                _height: 128,
-                _quality: 0,
-                _get_file_path: true,
-            }),
-        }|json_encode|raw }}
-    {% endapply %}
-{% endblock request -%}
-````
-
-In this previous example we assume that a call to the `emsch_assets_version` function has been made in the `template/variables.twig` template.

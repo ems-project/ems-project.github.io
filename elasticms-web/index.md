@@ -3,3 +3,4 @@
 ElasticMS Web is a stateless application which can generate an informative website from content indexed in an elasticsearch cluster.
 
 [Environment variables](/elasticms-web/parameters.md)
+[Security](/elasticms-web/security.md)
