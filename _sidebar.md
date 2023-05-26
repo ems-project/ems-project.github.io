@@ -18,6 +18,7 @@
   - [WYSIWYG](/elasticms-admin/wysiwyg/wysiwyg.md)
 - [ElasticMS Web](/elasticms-web/index.md)
   - [Environment variables](/elasticms-web/parameters.md)
+  - [Security](/elasticms-web/security.md)
 - [ElasticMS CLI](/elasticms-cli/index.md)
   - [Environment variables](/elasticms-cli/parameters.md)
   - [Common's commands](/elasticms-cli/commands.md)
