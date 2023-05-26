@@ -39,9 +39,10 @@ home:
 
 ## Config Defaults
 
-| Name      | value      | Description                                                                           |
-|-----------|------------|---------------------------------------------------------------------------------------|
-| _profiler | true/false | You can disable the profiler for a specific route, by setting **_profiler** to false. |
+| Name           | value      | Description                                                                                                                                          |
+|----------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| _profiler      | true/false | You can disable the profiler for a specific route, by setting **_profiler** to false.                                                                |
+| _authenticated | true/false | The AuthenticatedListener will throw an **AccessDeniedException** if the user is not fully authenticated. See [security](/elasticms-web/security.md) |
 
 
 ## Controllers
