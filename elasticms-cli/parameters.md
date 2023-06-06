@@ -30,6 +30,16 @@ Examples:
 
 ## Elasticms Common Bundle variables
 
+### EMS_ELASTICSEARCH_CONNECTION_POOL
+
+Define the [elasticsearch sniffing strategy](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.17/connection_pool.html:
+- Default value: EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SniffingConnectionPool'
+- Possible values:
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SimpleConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SniffingConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\StaticConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\StaticNoPingConnectionPool'
+
 ### EMS_ELASTICSEARCH_HOSTS
 
 Define the elasticsearch cluster as an array (JSON encoded) of hosts:
@@ -70,3 +80,14 @@ Redis host for the common cache service. Default `localhost`.
 ### EMS_REDIS_PORT
 
 Redis port for the common cache service. Default `6379`.
+
+
+### EMS_STORE_DATA_SERVICES
+
+Define (JSON format) the store data services, in the priority order. See the [Stora Data documentation](../recipes/store-data.md) for more details. By default, the store data functionalities are disabled.
+
+## CLI variables
+
+### EMSCLI_TIKA_PATH
+
+Path to the Tika JAR. Default `/opt/bin/tika.jar`. If your are using a elasticMS CLI, a Tika jar is included. From version 5.6.

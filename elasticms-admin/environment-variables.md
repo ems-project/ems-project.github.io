@@ -291,6 +291,15 @@ Example base template.
 <link rel="stylesheet" href="{{ asset('css/app.css', 'emsch') }}">
 ```
 
+### EMSCH_LOCAL_PATH
+
+Overwrite the destination of the local files, by default `emsch:local:*` commands will search in `local/%environment_alias%` folder.
+
+Example for locally loading the demo inside local elasticms-admin.
+```.dotenv
+EMSCH_LOCAL_PATH='../demo/skeleton'
+```
+
 ## Elasticms Common Bundle variables
 
 ### EMS_LOG_LEVEL
@@ -307,6 +316,16 @@ Possible values:
 - CRITICAL (500): critical conditions. Example: Application component unavailable, unexpected exception
 - ALERT (550): action must be taken immediately. Example: Entire website down, database unavailable, etc. This should trigger phone call or SMS alerts and wake you up
 - EMERGENCY (600): emergency: system is unusable
+
+### EMS_ELASTICSEARCH_CONNECTION_POOL
+
+Define the [elasticsearch sniffing strategy](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.17/connection_pool.html:
+- Default value: EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SniffingConnectionPool'
+- Possible values:
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SimpleConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SniffingConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\StaticConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\StaticNoPingConnectionPool'
 
 ### EMS_ELASTICSEARCH_HOSTS
 
@@ -369,6 +388,10 @@ Can fine tune the ems_weblize twig filter by adjusting the regex used to remove 
 
 Can fine tune the ems_weblize twig filter by adjusting the regex used to replace some characters by a dash `-`. Default value `/([^a-zA-Z0-9\_\|\ \-\.])|(\.$)/`
 
+### EMS_STORE_DATA_SERVICES
+
+Define (JSON format) the store data services, in the priority order. See the [Stora Data documentation](../recipes/store-data.md) for more details. Default value `[{"type":"db"}]`
+
 ## Elasticms Form Bundle variables
 
 ### EMSF_HASHCASH_DIFFICULTY
@@ -396,6 +419,11 @@ Define the [connections](https://github.com/ems-project/EMSSubmissionBundle/blob
 
 ### EMSS_DEFAULT_TIMEOUT
 Define the [default timeout](https://github.com/ems-project/EMSSubmissionBundle/blob/master/src/Resources/doc/index.md#default-timeout) for the submission bundle. Set to `10` by default.
+
+
+### EMSCO_CUSTOM_USER_OPTIONS_FORM
+If sets and refers to a Form entity, the corresponding form will be included in the User profile form (/user/edit/1).
+It's usefully in order to add extra parameters or attributes to a specific instance of elasticms. I.e. adding users working hours.
 
 
 ## Deprecated variables

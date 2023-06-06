@@ -4,6 +4,7 @@
 * [Commands](#commands)
   * [EMSCO (CoreBundle)](#emsco-corebundle)
     * [Content Type](#content-type)
+      * [Content Type switch default environment](#content-type-switch-default-environment)
       * [Content Type transform](#content-type-transform)
     * [Environment](#environment)
       * [Environment align](#environment-align)
@@ -24,6 +25,7 @@
       * [User deactivate](#user-deactivate)
       * [User demote](#user-demote)
       * [User promote](#user-promote)
+      * [User update option](#user-update-option)
     * [XLIFF](#xliff)
       * [XLIFF extract](#xliff-extract)
       * [XLIFF update](#xliff-update)
@@ -208,15 +210,25 @@ emsco:revision:delete all # Removing all revisions
 emsco:revision:delete all --mode=oldest # Removing all oldest revisions
 ```
 
+It's also possible to delete revision by passing a query. In this case the provided elasticsearch query is run all all OUUIDs are collected.
+Base on those OUUIDs all revisions in the database and all documents in all managed indexes are deleted.
+
+```bash
+ php bin/console ems:rev:dele --mode=by-query --query='{"index":"ems_default","body":{"query":{"bool":{"must":[{"term":{"host":{"value":"domain.tld","boost":1}}},{"terms":{"_contenttype":["audit"]}}]}}}}'
+```
+
+
 ```bash
 Usage:
-  emsco:revision:delete [options] [--] [<contentTypes>...]
+  emsco:revision:delete [options] [--] [<content-types>...]
+  ems:contenttype:delete
 
 Arguments:
-  contentTypes          contentType names or "all"
+  content-types         contentType names or "all"
 
 Options:
-      --mode=MODE       mode for deletion [all,oldest] [default: "all"]
+      --mode=MODE       mode for deletion [all,oldest,by-query] [default: "all"]
+      --query[=QUERY]   query to use in by-query mode
 ```
 
 #### Revision discard
@@ -345,6 +357,35 @@ Arguments:
 
 Options:
       --super           Instead specifying role, use this to quickly add the super administrator role
+```
+
+#### User update option
+
+```
+Description:
+  Update a user option.
+
+Usage:
+  emsco:user:update-option [options] [--] <option> <value>
+
+Arguments:
+  option                simplified_ui|allowed_configure_wysiwyg|custom_options
+  value                 value for updating
+
+Options:
+      --email[=EMAIL]   use wildcard % (%@example.dev)
+
+Help:
+  The emsco:user:update-option command changes an option of a user(s):
+
+    Enable "simplified_ui" for all users
+    php bin/console emsco:user:update-option simplified_ui true
+
+    Enable "allowed_configure_wysiwyg" for all users
+    php bin/console emsco:user:update-option allowed_configure_wysiwyg true
+
+    Set country "Belgium" for all users with a .be email address
+    php bin/console emsco:user:update-option custom_options '{"country":"Belgium"}' --email='%.be'
 ```
 
 ### XLIFF 

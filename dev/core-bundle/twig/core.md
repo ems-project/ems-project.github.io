@@ -29,3 +29,56 @@ Default value for from is `ems_core.from_email` and `%ems_core.name%` parameter.
 {% do email.to('test@example.com').text('Body text') %}
 {% do emsco_send_email(email) %}
 ```
+
+## emsco_skip_notification
+Can be used in notification in order to not send the notification and display a warning message.
+
+```twig
+{{ emsco_skip_notification() }}
+```
+The warning message can be defined:
+
+```twig
+{{ emsco_skip_notification('The title field is not provided, the request for publication can not be send.') }}
+```
+
+## emsco_form
+
+Handle the current request with the form identified by its name. It allows to generate form in view, action or dashboard:
+
+```twig
+{% set form = emsco_form('user') %}
+{% set formView = form.createView %}
+
+{{ form_start(formView) }}
+    {{ form_row(attribute(formView, 'user')) }}
+    <div>
+        <button type="submit" class="btm btn-primary">Filter</submit>
+    </div>
+{{ form(formView) }}
+
+{% if form.valid %}
+    {{ form.data.user|json_encode }}
+{% endif %}
+```
+
+## emsco_display
+
+Returns a string representation for a elasticSearch document, revision or EMS link.
+
+Pass a symfony [expression](https://symfony.com/doc/current/components/expression_language.html) or define a default in the contentType field `display`.
+
+This filter replaces the filter `|data_label`.
+
+Context for the expression: 
+- rawData: array containing the rawData from document or revision
+- userLocale: the preferred locale of the user, fallback environment variable `EMSCO_FALLBACK_LOCALE`
+
+```twig
+{# Print the label in the users preferred locale, fallback to label_fr #}
+{% set document = 'page:e6f73dd73a5a3f5336bd3fe52d0304b26e437f34'|emsch_get %}
+{{ document|emsco_display("(rawData['label_'~userLocale] ?? rawData['label_fr'])")
+
+{# display from emsLink and using contentTypes defined display value #}
+{{ 'page:e6f73dd73a5a3f5336bd3fe52d0304b26e437f34'|emsco_display }}
+```

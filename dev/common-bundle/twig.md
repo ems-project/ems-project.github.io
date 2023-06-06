@@ -4,6 +4,10 @@
   * [ems_html](#ems_html)
   * [ems_nested_search](#ems_nested_search)
   * [ems_image_info](#ems_image_info)
+  * [ems_uuid](#ems_uuid)
+  * [ems_store_read](#ems_store_read)
+  * [ems_store_save](#ems_store_save)
+  * [ems_store_delete](#ems_store_delete)
 * [Twig filters](#twig-filters)
   * [ems_anti_spam](#ems_anti_spam)
   * [ems_html_encode](#ems_html_encode)
@@ -14,6 +18,7 @@
   * [ems_html_decode](#ems_html_decode)
   * [ems_hash](#ems_hash)
   * [format_bytes](#format_bytes)
+  * [ems_ascii_folding](#ems_ascii_folding)
 
 
 
@@ -83,6 +88,79 @@ Where _'4ef5796bb14ce4b711737dc44aa20bff82193cf5'_ is the hash of a jpg
 }
 ```
 
+## ems_uuid
+
+Generate a version 4 (random) UUID. [More info](https://uuid.ramsey.dev/en/stable/rfc4122/version4.html).
+
+````twig
+{{ ems_uuid() }} {# displays: 21.16 KB #}
+````
+
+## ems_store_read
+
+Retrieve, or initialize, an associative array (a.k.a. store data) for a given key from the first Store Data Services where the key is available. See the [Stora Data documentation](../../recipes/store-data.md) for more details.
+
+````twig
+{% set data = ems_store_read('forum') %}
+<form method="post" action="{{ path('emsch_update_store') }}">
+    <textarea name="data" cols="10">{{ data.get('[data]') }}</textarea>
+    <input name="submit" type="submit" value="Submit">
+</form>
+````
+
+
+## ems_store_save
+
+Update a store data in all store data services. This function must be called in a non-safe request (i.e. `POST` or `PUT`). See the [Stora Data documentation](../../recipes/store-data.md) for more details.
+
+```yaml
+emsch_update_store:
+    config:
+        path: '/post-data'
+        controller: 'emsch.controller.router::redirect'
+        method: [POST]
+    template_static: template/redirects/post-data.json.twig
+```
+
+````twig
+{%- block request %}
+{% apply spaceless %}
+  {% set data = ems_store_read('forum') %}
+  {% do data.set('[data]', app.request.get('data')) %}
+  {% do ems_store_save(data) %}
+
+  {{ {
+    url: path('home'),
+  }|json_encode|raw }}
+{% endapply %}
+{% endblock request -%}
+````
+
+
+## ems_store_delete
+
+Delete a store data in all store data services. This function must be called in a non-safe request (i.e. `POST` or `PUT`). See the [Stora Data documentation](../../recipes/store-data.md) for more details.
+
+```yaml
+emsch_delete_store:
+    config:
+        path: '/delete-post-data'
+        controller: 'emsch.controller.router::redirect'
+        method: [POST]
+    template_static: template/redirects/delete-post-data.json.twig
+```
+
+````twig
+{%- block request %}
+{% apply spaceless %}
+  {% do ems_store_delete('forum') %}
+
+  {{ {
+    url: path('home'),
+  }|json_encode|raw }}
+{% endapply %}
+{% endblock request -%}
+````
 
 # Twig filters
 
@@ -229,4 +307,18 @@ A second 'precision' parameter can be defined:
 
 ````twig
 {{ 21666|format_bytes(1) }} {# displays: 21.2 KB #}
+````
+
+## ems_ascii_folding
+
+Convert UTF-8 characters in string by their equivalent in the "old" ascii table:
+
+````twig
+{{ 'Chemin d''accès: î$]&²'|ems_ascii_folding }} {# displays: Chemin d acces: i$]&² #}
+````
+
+It's useful if you want to sort an array regardless accented characters:
+
+````twig
+{% set sortedArray = notSortedArray|sort((a, b) => a|ems_ascii_folding <=> b|ems_ascii_folding) %}
 ````

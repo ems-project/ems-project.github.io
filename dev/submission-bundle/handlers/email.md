@@ -71,6 +71,25 @@ If your body contains HTML structured text, you have to pass the content-type op
 {{ email|json_encode|raw }}
 ```
 
+You can also define a `reply-to` option:
+
+```twig
+{% autoescape %}
+{% set body %}
+    Email {{ data.email }}
+    Name {{ data.name }}
+    Firstname {{ data.firstname }}
+{% endset %}
+
+{% set email = {
+    "from": "no-reply@company.com",
+    "reply-to": data.email,
+    "subject": "Email Form subject",
+    "body": body
+} %}
+{% endautoescape %}
+{{ email|js
+
 ### Attachments
 
 Use the **formData** helper object to retreive all files that are attached to the form submission.

@@ -65,11 +65,11 @@ The ems project heavily uses [TWIG](https:///twig.symfony.com).
 | [trans](https://twig.symfony.com/doc/3.x/tags/trans.html)                               | 
 | [trans_default_domain](https://twig.symfony.com/doc/3.x/tags/trans_default_domain.html) | 
 
-| Filters                                                                      |                                                                          |
-|------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| [humanize](https://twig.symfony.com/doc/3.x/filters/humanize.html)           | [trans](https://twig.symfony.com/doc/3.x/filters/trans.html)             |
-| [sanitize_html](https://twig.symfony.com/doc/3.x/filters/sanitize_html.html) | [yaml_dump](https://twig.symfony.com/doc/3.x/filters/yaml_dump.html)     |
-| [serialize](https://twig.symfony.com/doc/3.x/filters/serialize.html)         | [yaml_encode](https://twig.symfony.com/doc/3.x/filters/yaml_encode.html) |
+| Filters                                                                  |                                                                      |
+|--------------------------------------------------------------------------|----------------------------------------------------------------------|
+| [humanize](https://twig.symfony.com/doc/3.x/filters/humanize.html)       | [trans](https://twig.symfony.com/doc/3.x/filters/trans.html)         |
+| [yaml_encode](https://twig.symfony.com/doc/3.x/filters/yaml_encode.html) | [yaml_dump](https://twig.symfony.com/doc/3.x/filters/yaml_dump.html) |
+| [serialize](https://twig.symfony.com/doc/3.x/filters/serialize.html)     |                                                                      |
 
 | Functions                                                                      |                                                                            |                                                                            |                                                                            |                                                                                |
 |--------------------------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------------|--------------------------------------------------------------------------------|

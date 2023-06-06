@@ -2,7 +2,7 @@
 
 The command `emscli:web:audit` audits a websites. This command is interruptible and resumable at any moment. This command has 2 outputs:
 
-* Updated documents in a elasticms's admin (via the rest API) compatible with this [content type](./audit.json) 
+* Updated documents in a elasticms's admin (via the rest API) compatible with this [content type](/files/contenttype_audit.json ':ignore') 
 * An [Excel report](#Report)
 
 This command can perfomed multiple audits but not always all of them on every website's urls. See [Auditors](#Auditors).

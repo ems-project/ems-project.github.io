@@ -1,15 +1,11 @@
 CoreBundle
 =============
 
-It's the heart of ElasticMS Admin.
-
-
-
 
 ## Update translation files
 
 ```
-demo-dev trans:update --force --output-format=yml --sort=asc en EMSCoreBundle
-demo-dev trans:update --force --domain=emsco-twigs --output-format=yml --sort=asc en EMSCoreBundle
+php bin/console trans:update --force --format=yml en EMSCoreBundle --as-tree=15
 ```
 
+Files generated have to be copied in the `EMS/core-bundle/src/Resources/translations` folder

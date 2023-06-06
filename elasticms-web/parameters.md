@@ -142,6 +142,15 @@ Example base template.
 <link rel="stylesheet" href="{{ asset('css/app.css', 'emsch') }}">
 ```
 
+### EMSCH_LOCAL_PATH
+
+Overwrite the destination of the local files, by default `emsch:local:*` commands will search in `local/%environment_alias%` folder.
+
+Example for locally loading the demo inside local elasticms-web.
+```.dotenv
+EMSCH_LOCAL_PATH='../demo/skeleton'
+```
+
 ### EMSCH_SEARCH_LIMIT
 
 Specify the maximum number of expected document for template, translation and route content types. Default value `1000`
@@ -152,6 +161,16 @@ Specify the maximum number of expected document for template, translation and ro
 
 Define the elasticsearch cluster as an array (JSON encoded) of hosts:
 - Default value: EMS_ELASTICSEARCH_HOSTS='["http://localhost:9200"]'
+
+### EMS_ELASTICSEARCH_CONNECTION_POOL
+
+Define the [elasticsearch sniffing strategy](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.17/connection_pool.html:
+- Default value: EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SniffingConnectionPool'
+- Possible values:
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SimpleConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\SniffingConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\StaticConnectionPool'
+    - EMS_ELASTICSEARCH_CONNECTION_POOL='Elasticsearch\\ConnectionPool\\StaticNoPingConnectionPool'
 
 ### EMS_STORAGES
 
@@ -208,6 +227,10 @@ Can fine tune the ems_weblize twig filter by adjusting the regex used to remove 
 ### EMS_WEBALIZE_DASHABLE_REGEX
 
 Can fine tune the ems_weblize twig filter by adjusting the regex used to replace some characters by a dash `-`. Default value `/([^a-zA-Z0-9\_\|\ \-\.])|(\.$)/`
+
+### EMS_STORE_DATA_SERVICES
+
+Define (JSON format) the store data services, in the priority order. See the [Stora Data documentation](../recipes/store-data.md) for more details. By default, the store data functionalities are disabled.
 
 ## Elasticms Form Bundle variables
 
