@@ -113,7 +113,10 @@ The will instantiate a S3 client service to read/save assets in a S3 (or a s3-li
  - `credentials` (mandatory): S3 credential object
  - `bucket` (mandatory): Name of the bucket to use
  - `usage` Default value: `"cache"`
- - `upload-folder` Default value: `null`. As S3 doesn't support appending chunks the performances of this services decrease with large files. You may be interested to upload files in a local folder first. That folder must be shared between your instances or at least sessions must associate to one instance (i.e. via a sticky session cookie).  
+ - `multipart-upload` Default value `true`
+   - `false`: The S3 multipart upload API is not used: the uploads are resumable but slow
+   - `true`: Activate the S3 multipart upload API: the uploads are fast but not resumable
+ - `upload-folder` Deprecated option
  
  Example:
  ```yaml
