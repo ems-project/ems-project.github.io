@@ -24,6 +24,13 @@ sudo apt install composer
 sudo apt install php-common php-curl php-gd php-iconv php-intl php-json php-ldap php-mbstring php-mysql php-pgsql php-soap php-sqlite3 php-tidy php-xml php-zip
 ```
 
+If you are using a mac with [mac port](https://www.macports.org/):
+
+```bash
+sudo port install php81 php81-curl php81-gd php81-iconv php81-intl php81-ldap php81-mbstring php81-mysql php81-soap php81-tidy php81-zip
+sudo port select php php81
+```
+
 ### Switch between multiple PHP versions
 
 
