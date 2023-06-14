@@ -1,9 +1,19 @@
 # Upgrade
 
+  * [version 5.7.x](#version-57x)
   * [version 5.3.x](#version-53x)
   * [version 4.2.x](#version-42x)
   * [version 4.x](#version-4x)
   * [Tips and tricks](#tips-and-tricks)
+
+## version 5.7.x
+
+### Media library new features
+
+* infinity scrolling on files
+* draggable file upload
+
+[Media Library documentation](./dev/core-bundle/twig/component.md#media-library)
 
 ## version 5.3.x
 
