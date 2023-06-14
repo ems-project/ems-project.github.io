@@ -30,6 +30,7 @@ If you use this [media_library.json](/files/contenttype_media_library.json ':ign
 | `fieldFolder`     | media_folder           | **required** Field name for folder value                   |
 | `fieldFile`       | media_file             | **required** Field name for asset                          |
 | `defaultValue`    |                        | Key/value array for defining default, example organization |
+| `searchSize`      |                        | Set the searchSize, used for infinity scrolling            |
 | `searchQuery`     |                        | Example only load media files for an organization          |
 | `template`        |                        | see [templating](#templating)                              |
 | `context`         |                        | see [templating](#templating)                              |
