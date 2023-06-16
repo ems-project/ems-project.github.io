@@ -345,7 +345,7 @@ Functions available:
    - Example `"array_to_json_menu_nested(data.get('temp.files'),  { 'file_info' : [ 'date' , { 'fr' : ['long_title', 'file'] } , { 'nl' : ['long_title', 'file'] } ] })"`
  - `merge(arr1,arr2)`: Merge arrays
 
-   Variable available
+Variable available
  - `data` an instance of [ExpressionData](https://github.com/ems-project/elasticms/blob/4.x/elasticms-cli/src/Client/WebToElasticms/Helper/ExpressionData.php)
  - `document` an instance of [Document](https://github.com/ems-project/elasticms/tree/4.x/elasticms-cli/src/Client/WebToElasticms/Config)
 
