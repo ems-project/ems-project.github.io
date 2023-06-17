@@ -12,6 +12,7 @@
   - ContentType
     - [Config](/elasticms-admin/contentType/contentType.md)
     - [Form](/elasticms-admin/contentType/form.md)
+    - [File preview](/elasticms-admin/contentType/file-preview.md)
   - [Dashboard](/elasticms-admin/dashboard/dashboard.md)
   - [Environment](/elasticms-admin/environment/environment.md)
   - [User](/elasticms-admin/user/user.md)
