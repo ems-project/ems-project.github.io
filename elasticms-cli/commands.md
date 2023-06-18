@@ -25,6 +25,7 @@ Options:
       --documents-folder[=DOCUMENTS-FOLDER]  Export documents folder
 ```
 
+The environment variable [`EMS_EXCLUDED_CONTENT_TYPES`](parameters.md#ems_excluded_content_types) can be used in order to exclude documents from a list content types.
 
 
 #### Command
