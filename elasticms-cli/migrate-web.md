@@ -131,6 +131,15 @@ The JSON config file list all web resources to synchronise for each document.
             ],
             "attribute": "href",
             "strategy": "n"
+         },
+         {
+            "selector": "div#relatedPages ul li a",
+            "property": "[temp][%locale%][related_pages]",
+            "filters": [
+               "data-link:link"
+            ],
+            "attribute": "href",
+            "strategy": "n"
          }
       ]
     },
@@ -177,12 +186,18 @@ The JSON config file list all web resources to synchronise for each document.
           "jsonDecode": false,
           "condition": "true"
         },
-         {
-            "property": "[files]",
-            "expression": "array_to_json_menu_nested(data.get('temp.files'),  { 'file_info' : [ 'date' , { 'fr' : ['long_title', 'file'] } , { 'nl' : ['long_title', 'file'] } ] })",
-            "jsonDecode": false,
-            "condition": "true"
-         }         
+        {
+           "property": "[files]",
+           "expression": "array_to_json_menu_nested(data.get('temp.files'),  { 'file_info' : [ 'date' , { 'fr' : ['long_title', 'file'] } , { 'nl' : ['long_title', 'file'] } ] })",
+           "jsonDecode": false,
+           "condition": "true"
+        },
+        {
+           "property": "[related_pages]",
+           "expression": "merge(data.get('temp.fr.related_pages'), data.get('temp.nl.related_pages'))",
+           "jsonDecode": false,
+           "condition": "true"
+        }
       ],
       "tempFields": [
         "temp"
@@ -328,6 +343,7 @@ Functions available:
    - `values`: Array of values
    - `keys`: Array of keys (first element key are type of name of key = name of field need to be imported and need exactly the same in values)
    - Example `"array_to_json_menu_nested(data.get('temp.files'),  { 'file_info' : [ 'date' , { 'fr' : ['long_title', 'file'] } , { 'nl' : ['long_title', 'file'] } ] })"`
+ - `merge(arr1,arr2)`: Merge arrays
 
 Variable available
  - `data` an instance of [ExpressionData](https://github.com/ems-project/elasticms/blob/4.x/elasticms-cli/src/Client/WebToElasticms/Helper/ExpressionData.php)
