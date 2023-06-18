@@ -232,6 +232,10 @@ Can fine tune the ems_weblize twig filter by adjusting the regex used to replace
 
 Define (JSON format) the store data services, in the priority order. See the [Stora Data documentation](../recipes/store-data.md) for more details. By default, the store data functionalities are disabled.
 
+### EMS_EXCLUDED_CONTENT_TYPES
+
+Define (JSON format) a list of content type names to exclude from admin backup/restore commands. Example: `["route","template","template_ems","label"]`. Default value `[]`
+
 ## Elasticms Form Bundle variables
 
 ### EMSF_HASHCASH_DIFFICULTY
