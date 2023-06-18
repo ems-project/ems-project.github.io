@@ -9,6 +9,6 @@ This script limit the file's size to 3MB (helpful to keep elasticms-web containe
     {{ emsco_cant_be_finalized('The file cannot be bigger than 3 MB') }}
 {% endif -%}
 {%- if finalize and _source.image.sha1|default(false) and not (_source.image.mimetype|default('0') starts with 'image/') %}
-    {{ cant_be_finalized('This field only accepts images') }}
+    {{ emsco_cant_be_finalized('This field only accepts images') }}
 {% endif -%}
 ```
