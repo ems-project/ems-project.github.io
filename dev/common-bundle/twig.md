@@ -19,6 +19,7 @@
   * [ems_hash](#ems_hash)
   * [format_bytes](#format_bytes)
   * [ems_ascii_folding](#ems_ascii_folding)
+  * [ems_template_exists](#ems_template_exists)
 
 
 
@@ -321,4 +322,14 @@ It's useful if you want to sort an array regardless accented characters:
 
 ````twig
 {% set sortedArray = notSortedArray|sort((a, b) => a|ems_ascii_folding <=> b|ems_ascii_folding) %}
+````
+
+## ems_template_exists
+
+Test if a template exists or not. This function works with all kind of templates:
+
+````twig
+{% if not ems_template_exists("@EMSCH/template/page/#{name}.html.twig") %}
+  {% do emsch_http_error(404, 'Page not found') %}
+{% endif %}
 ````
