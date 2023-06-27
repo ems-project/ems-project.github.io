@@ -13,6 +13,14 @@ The following components can be used in views/actions and dashboards.
 
 ## Media library
 
+The media library component show all documents inside a contentType with a folder tree.
+Uploading a new file will create a new document.
+
+* **Files list**: has infinity scrolling, so a folder can contain x amount of files.
+* **Folders list**: limited to **5000** folders over all levels.
+
+### Implementation
+
 If you use this [media_library.json](/files/contenttype_media_library.json ':ignore') contentType, the only required attribute is `id`.
 
 ```twig
@@ -30,6 +38,7 @@ If you use this [media_library.json](/files/contenttype_media_library.json ':ign
 | `fieldFolder`     | media_folder           | **required** Field name for folder value                   |
 | `fieldFile`       | media_file             | **required** Field name for asset                          |
 | `defaultValue`    |                        | Key/value array for defining default, example organization |
+| `searchSize`      | 100                    | Used for search and infinity scrolling                     |
 | `searchQuery`     |                        | Example only load media files for an organization          |
 | `template`        |                        | see [templating](#templating)                              |
 | `context`         |                        | see [templating](#templating)                              |
