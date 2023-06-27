@@ -171,3 +171,13 @@ If you want to export the data and versioning new settings
 ```bash
 docker compose exec keycloak sh /opt/keycloak/bin/kc.sh export --dir /data --users same_file --realm elasticms
 ```
+
+## About PHP configuration
+
+Activate those PHP options inside you php.ini:
+
+```ini
+zend.assertions = 1
+```
+
+You can easily locate your php.ini file with the command: `php --info|grep php.ini`
