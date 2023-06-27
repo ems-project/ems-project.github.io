@@ -79,9 +79,11 @@ And in the redirect_favicon.json.twig template:
 ````
 
 The template's response should be a JSON containing those optional parameters:
-- `url`: the target url to redirect to
+- `path`: path for returning BinaryFileResponse
+- `url`: the target url to redirect to, required if path is not defined
 - `status`: the HTTP return's code. Default value: 302
 - `message`: A 404 message. Default value 'Page not found'
+- `headers`: array for defining the response headers
 
 If the url parameter is not defined, the controller will throw a 404 with the message parameter.
 
