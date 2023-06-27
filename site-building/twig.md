@@ -87,13 +87,21 @@ The common's twig filters and functions are available in both ElasticMS Admin an
 
 ### Filter
 
-#### `ems_dom_crawler`
+#### ems_dom_crawler
 
 This filter parses a string and returns a [Symfony DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html)
 
 Useful to extract content from a html string: `{% set firstP = data.body_fr|ems_dom_crawler.filter('p').first.text %}`
 
+### Function
 
+#### ems_template_exists
+
+Returns true if the template exists. Also for only locally defined templates.
+
+```twig 
+{% set templateExists = ems_template_exists('@EMSCH/template/example.twig') %}
+```
 
 
 

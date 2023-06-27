@@ -8,12 +8,26 @@
 
 ## version 5.7.x
 
-### Media library new features
-
-* infinity scrolling on files
-* draggable file upload
-
-[Media Library documentation](./dev/core-bundle/twig/component.md#media-library)
+* Added twig function [ems_template_exists](./site-building/twig.md#ems_template_exists)
+* Added probe routes `/_readiness` and `/_liveness` for admin and web
+* Added header support for [Redirect controller](./dev/client-helper-bundle/routing.md#redirect-controller).
+* Added multipart support for [s3](./dev/common-bundle/storages.md#s3)
+* Added infinity scrolling for [MediaLibrary](./dev/core-bundle/twig/component.md#media-library)
+* Added draggable file upload for [MediaLibrary](./dev/core-bundle/twig/component.md#media-library)
+* Added `ems:admin:restore` command
+  ```bash
+  ems:admin:restore --configs --force
+  ems:admin:restore --documents --force
+  ```
+* Added `filename` option for upload assets command
+  ```bash
+  emsch:local:upload-assets --filename=/opt/src/local/skeleton/template/asset_hash.twig
+  ```
+  
+  ```twig
+  {% set assetPath = emsch_assets_version(include('@EMSCH/template/asset_hash.twig')) %}
+  ```
+* Deprecated ~~cant_be_finalized~~ use `emsco_cant_be_finalized`
 
 ## version 5.3.x
 
