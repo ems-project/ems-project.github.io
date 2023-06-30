@@ -113,7 +113,7 @@ In this example it will generate a PNG of 400 pixels of width. The height will b
    _config_type: 'image',
    _resize: 'ratio',
    _width: 400,
-   _heigh: 0,
+   _height: 0,
    _quality: 0        
 }) }}">
 ```
