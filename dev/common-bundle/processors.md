@@ -70,7 +70,7 @@ And in this sample il will generate an url to a file on the sever file system:
 ## Image processor
 
 With this processor you'll be able to generate images from a source asset:
-² - `_resize` will resize the image using one of those algorithms. Default value `fill`. This parameter des not apply on SVG images:
+ - `_resize` will resize the image using one of those algorithms. Default value `fill`. This parameter des not apply on SVG images:
      - `fill` will leave margins in the color defined by the `_border_color` parameter (or transparent if the `_quality` parameter is set to zero)
      - `fillArea` will crop to best fill the generated image without distort the image and without leave margins 
      - `free` will distort the image to fill the image
