@@ -8,7 +8,7 @@ On submit the application will preform a coreApi login to the environment api.
 
 After authentication, on every page request, the security user provider will refresh the authenticated user.
 
-!> Users need be **enabled** and have the role `ROLE_API`.
+!> User need be **enabled** and the role api is **not** required for logging in.
 
 1) For forcing authentication on a route set default **_authenticated** to true.
    See [Routing](/dev/client-helper-bundle/routing.md) for more information.
