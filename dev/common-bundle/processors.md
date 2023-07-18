@@ -70,11 +70,12 @@ And in this sample il will generate an url to a file on the sever file system:
 ## Image processor
 
 With this processor you'll be able to generate images from a source asset:
- - `_resize` will resize the image using one of those algorithms. This parameter des not apply on SVG images:
+ - `_resize` will resize the image using one of those algorithms. Default value `fill`. This parameter des not apply on SVG images:
      - `fill` will leave margins in the color defined by the `_border_color` parameter (or transparent if the `_quality` parameter is set to zero)
      - `fillArea` will crop to best fill the generated image without distort the image and without leave margins 
      - `free` will distort the image to fill the image
- - `_gravity` will specify the gravity to use if `fillArea` the image. Possible values:
+     - `ratio` will compute the width or height in order to keep the original image ratio. Set `_width` or `_height` to `0` to specify the auto-size on the width or the height
+ - `_gravity` will specify the gravity to use if `fillArea` the image. Default value `center`. Possible values:
      - `center`
      - `north`
      - `south`
@@ -83,10 +84,10 @@ With this processor you'll be able to generate images from a source asset:
      - `south-west`
      - `north-east`
      - `south-east`
- - `_quality` is an integer between 0 and 100. Is set to 0 a PNG will be generated, otherwise is refers to the quality of the JPEG generated. 
- - `_background` color used to replace (semi-)transparent pixels in the format `#000000`
- - `_height` define the height (in pixel) of the generated image is `_resize` is defined. If not define it will be computed from the `_width` parameter in order to preserve the initial proportion.
- - `_width` define the height (in pixel) of the generated image is `_resize` is defined. If not define it will be computed from the `_width` parameter in order to preserve the initial proportion.
+ - `_quality` is an integer between 0 and 100. Default value `0`. Is set to 0 a PNG will be generated, otherwise is refers to the quality of the JPEG generated. 
+ - `_background` color used to replace (semi-)transparent pixels in the format `#000000`. Default value `#FFFFFFFF`
+ - `_height` define the height (in pixel) of the generated image is `_resize` is defined. Default value `200`. If not define it will be computed from the `_width` parameter in order to preserve the initial proportion.
+ - `_width` define the height (in pixel) of the generated image is `_resize` is defined. Default value `300`. If not define it will be computed from the `_width` parameter in order to preserve the initial proportion.
  - `_radius` make rounded corners to the image using the `_border_color`
  - `_radius_geometry` define which corners must be rounded if `_radius` is defined. It's an array with the list of corners to treat. Default value `['topleft', 'topright', 'bottomright', 'bottomleft']` Possible values:
      - `'topleft'`
@@ -110,8 +111,9 @@ In this example it will generate a PNG of 400 pixels of width. The height will b
 ```twig
 <img src="{{ ems_asset_path(source.file, {
    _config_type: 'image',
-   _resize: 'fill',
+   _resize: 'ratio',
    _width: 400,
+   _height: 0,
    _quality: 0        
 }) }}">
 ```
