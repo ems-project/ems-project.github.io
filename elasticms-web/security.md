@@ -6,8 +6,6 @@ Since version 5.8 an elasticms web application can be secured with a form login.
 
 On submit the application will preform a coreApi login to the environment api.
 
-After authentication, on every page request, the security user provider will refresh the authenticated user.
-
 !> User need be **enabled** and the role api is **not** required for logging in.
 
 1) For forcing authentication on a route set default **_authenticated** to true.
