@@ -1,5 +1,14 @@
 # Core
 
+## emsco_get
+Get the [document](https://github.com/ems-project/elasticms/blob/HEAD/EMS/common-bundle/src/Elasticsearch/Document/DocumentInterface.php) from an ems link
+
+```twig
+{% set document = 'page:4930260c-3d40-4db3-ad94-f577c8d9c45e'|emsco_get %}
+{{ document.getValue('nl.label') }}
+```
+
+
 ## emsco_log_[error | warning | notice]
 Print flash message, usefull in post processing
 ```twig
@@ -76,7 +85,7 @@ Context for the expression:
 
 ```twig
 {# Print the label in the users preferred locale, fallback to label_fr #}
-{% set document = 'page:e6f73dd73a5a3f5336bd3fe52d0304b26e437f34'|emsch_get %}
+{% set document = 'page:e6f73dd73a5a3f5336bd3fe52d0304b26e437f34'|emsco_get %}
 {{ document|emsco_display("(rawData['label_'~userLocale] ?? rawData['label_fr'])")
 
 {# display from emsLink and using contentTypes defined display value #}
