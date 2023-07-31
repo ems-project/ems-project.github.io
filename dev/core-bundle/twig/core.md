@@ -2,10 +2,13 @@
 
 ## emsco_get
 Get the [document](https://github.com/ems-project/elasticms/blob/HEAD/EMS/common-bundle/src/Elasticsearch/Document/DocumentInterface.php) from an ems link
+Optional you can pass an search environment.
 
 ```twig
 {% set document = 'page:4930260c-3d40-4db3-ad94-f577c8d9c45e'|emsco_get %}
 {{ document.getValue('nl.label') }}
+
+{% set docInLive = 'page:17090dbe-5a61-4277-b691-08a867ad740e'|emsco_get('live'|emsco_get_environment)  %}
 ```
 
 
