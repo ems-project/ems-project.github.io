@@ -168,8 +168,28 @@ Define the number of result per page in the search pages.
  
 ### EMSCO_THEME_COLOR
 
-The color of the skin. The available skins can be found in the [EMSCoreBundle skin folder](https://github.com/ems-project/EMSCoreBundle/tree/master/assets/skins).
- - Default `blue`
+The color of the theme.
+ * Default `blue`
+ * Possible values:
+   * `blue`
+   * `indigo`
+   * `purple`
+   * `pink`
+   * `red`
+   * `orange`
+   * `yellow`
+   * `green`
+   * `teal`
+   * `cyan`
+   * `white`
+   * `gray`
+   * `black`
+   * `lightblue`
+   * `navy`
+   * `fuchsia`
+   * `maroon`
+   * `lime`
+   * `olive`
  
 ### EMSCO_DATE_TIME_FORMAT
 
