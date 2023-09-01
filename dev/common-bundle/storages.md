@@ -90,7 +90,7 @@ This will save/read assets in the default relational database.
  
 ### HTTP
 They will instantiate an HTTP service to read/save assets, typically an elasticms.
- - `type` (mandatory): `"html"`
+ - `type` (mandatory): `"http"`
  - `base-url` (mandatory): The base url (with scheme, protocol, ...) of your service i.e. `http://my-website.eu/admin`
  - `get-url` (optional): the relative url where to get asset by with a file's hash. Default value `/public/file/`
  - `auth-key` (optional): the authentication key to use in order to save asset. If not define the service will be read only.
@@ -100,7 +100,7 @@ They will instantiate an HTTP service to read/save assets, typically an elasticm
  ```yaml
 [
   {
-    "type": "html",
+    "type": "http",
     "base-url": "http://my-website.eu/admin",
     "auth-key": "MY-AUTH-KEY"
   }
