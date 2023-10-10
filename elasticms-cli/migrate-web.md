@@ -150,6 +150,13 @@ The JSON config file list all web resources to synchronise for each document.
     }
   ],
   "validClasses": ["toc"],
+  "styleValidTags": [
+    "table",
+    "th",
+    "tr",
+    "td",
+    "img"
+  ],
   "linkToClean": ["/^\\/fr\\/glossaire/"],
   "types": [
     {
@@ -175,8 +182,8 @@ The JSON config file list all web resources to synchronise for each document.
           "condition": "true"
         },
         {
-          "property": "[themes]",
-          "expression": "data.get('themes') == '' ? null : datalinks(split('/([a-zA-Z\u00e9\u00e8\u00e0\\-][a-zA-Z \u00e9\u00e8\u00e0\\-]+)\\\\|[0-9a-f]{8}\\-[0-9a-f]{4}\\-[0-9a-f]{4}\\-[0-9a-f]{4}\\-[0-9a-f]{12} */',data.get('themes')),'taxonomy')",
+          "property": "[target_groups]",
+          "expression": "data.get('target_groups') == '' ? null : datalinks(match('/\\\\|(?P<matches>[0-9a-f]{8}\\-[0-9a-f]{4}\\-[0-9a-f]{4}\\-[0-9a-f]{4}\\-[0-9a-f]{12})/',data.get('themes')),'taxonomy')",
           "jsonDecode": false,
           "condition": "true"
         },
