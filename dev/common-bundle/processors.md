@@ -74,7 +74,8 @@ With this processor you'll be able to generate images from a source asset:
      - `fill` will leave margins in the color defined by the `_border_color` parameter (or transparent if the `_quality` parameter is set to zero)
      - `fillArea` will crop to best fill the generated image without distort the image and without leave margins 
      - `free` will distort the image to fill the image
-     - `ratio` will compute the width or height in order to keep the original image ratio. Set `_width` or `_height` to `0` to specify the auto-size on the width or the height
+     - `ratio` finds optimal crops for images, based on Jonas Wagner's [smartcrop.js](https://github.com/jwagner/smartcrop.js)
+     - `smartCrop` will compute the width or height in order to keep the original image ratio. Set `_width` or `_height` to `0` to specify the auto-size on the width or the height
  - `_gravity` will specify the gravity to use if `fillArea` the image. Default value `center`. Possible values:
      - `center`
      - `north`
