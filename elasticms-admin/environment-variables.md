@@ -325,7 +325,7 @@ EMSCH_LOCAL_PATH='../demo/skeleton'
 ### EMS_LOG_LEVEL
 
 Define the log level (integer) where logs will be saved in DB:
-- Default value: EMS_ELASTICSEARCH_HOSTS='250'
+- Default value: EMS_LOG_LEVEL='250'
 
 Possible values:
 - DEBUG (100): detailed debug information
