@@ -42,23 +42,26 @@ search_example:
 ## Query search
 
 Define the search query, cannot be used in combination with the fields option.
-Example search route with query_search defined.
 
-```yaml
-search_example:
-    config:
-        path: '/search'
-        controller: 'emsch.controller.search::handle'
-        defaults: {
-            types: [ "page" ],        
-            query_search: { bool: { should: [
-                { multi_match: { query: "%query%", operator: "and", type: "bool_prefix", boost: 10, fields: ["live_search","live_search._2gram","live_search._3gram"] } },
-                { query_string: { query: "%query%", default_operator: "AND", boost: 5, default_field: "title" } },
-                { query_string: { query: "%query%", default_operator: "AND", default_field: "all" } }
-            ] } }     
+!> Important the query_search option needs to be a bool query, since 5.12
+
+Example search config with query_search defined.
+
+```json
+{
+    "query_search": {
+        "bool": {
+            "minimum_should_match": 1,
+            "should": [
+                { "multi_match": { "query": "%query%", "operator": "and", "type":"bool_prefix", "boost":10, "fields": ["title_%_locale%","all_%_locale%"] } },
+                { "query_string": { "query": "%query%", "default_operator": "AND", "boost": 5, "default_field": "title_%_locale%" } },
+                { "query_string": { "query": "%query%", "default_operator": "AND", "default_field": "all_%_locale%" } }
+            ]
         }
-    template_static: template/page/search_page.html.twig
+    }
+}
 ```
+
 
 ## Filters
 
